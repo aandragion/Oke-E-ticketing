@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.detailFilm">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="307dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="30dp"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:layout_centerHorizontal="true"/>
+
+            " />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView"
+                android:layout_alignStart="@+id/imageView"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/ratingBar"
+                android:layout_alignStart="@+id/ratingBar"
+                android:layout_alignEnd="@+id/imageView"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:hint="Deskripsi" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="82dp"
+                android:layout_height="33dp"
+                android:layout_below="@+id/textView4"
+                android:layout_alignEnd="@+id/textView4"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/rounded"
+                android:text="PESAN"
+                android:textColor="#DBFAFE" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

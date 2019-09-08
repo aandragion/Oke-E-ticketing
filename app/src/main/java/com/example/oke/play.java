@@ -1,0 +1,105 @@
+package com.example.oke;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.oke.activity.ad_beranda;
+import com.example.oke.apihelper.api.BaseApiService;
+import com.example.oke.apihelper.api.UtilsApi;
+import com.example.oke.apihelper.api.list_beranda;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+public class play extends Fragment {
+    public play() {
+        // Required empty public constructor
+    }
+
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<list_beranda> contacts;
+    private ad_beranda adapter;
+    private BaseApiService apiInterface;
+    ProgressBar progressBar;
+    TextView search;
+    String[] item;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_play, container, false);
+
+
+        progressBar = view.findViewById(R.id.prograss);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        layoutManager = new GridLayoutManager(getActivity(),2);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        fetchContact("film");
+        return view;
+    }
+
+    private void fetchContact(String type) {
+        apiInterface = UtilsApi.getAPIService();
+
+        Call<List<list_beranda>> call = apiInterface.getContact(type);
+        call.enqueue(new Callback<List<list_beranda>>() {
+            @Override
+            public void onResponse(Call<List<list_beranda>> call, Response<List<list_beranda>> response) {
+                progressBar.setVisibility(View.GONE);
+                contacts = response.body();
+                adapter = new ad_beranda(contacts, getActivity());
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<list_beranda>> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), "Error\n"+t.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu, menu);
+//
+//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+//        searchView.setSearchableInfo(
+//                searchManager.getSearchableInfo(getComponentName()));
+//        searchView.setIconifiedByDefault(false);
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                fetchContact("users", query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                fetchContact("users", newText);
+//                return false;
+//            }
+//        });
+//        return true;
+//    }
+
+}
