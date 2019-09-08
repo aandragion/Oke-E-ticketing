@@ -40,7 +40,7 @@ public class profil extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
         btnClickMe = (ImageButton) view.findViewById(R.id.b_logout2);
         viewItems(view);
-//        nama = (TextView) view.findViewById(R.id.nama);
+
         sharedPrefManager = new SharedPrefManager(getActivity());
         //logout
         btnClickMe.setOnClickListener(new View.OnClickListener() {
@@ -56,11 +56,6 @@ public class profil extends Fragment {
         email.setText(sharedPrefManager.getSpEmail(SharedPrefManager.SP_EMAIL,""));
         alamat.setText(sharedPrefManager.getSpAlamat(SharedPrefManager.SP_ALAMAT,""));
         no_telp.setText(sharedPrefManager.getSpNoTlp(SharedPrefManager.SP_NO_TLP,""));
-//        HashMap<String, String> map = sharedPrefManager.getDetailProfil();
-//        nama.setText(map.get(sharedPrefManager.SP_NAMA));
-//        email.setText(map.get(sharedPrefManager.SP_EMAIL));
-//        id = map.get(sharedPrefManager.SP_NAMA);
-
         return view;
     }
     private void viewItems(View view) {

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.detailFilm"></activity>
+        <activity android:name=".edit_profil"></activity>
+        <activity android:name=".activity.detailFilm" />
 
         <meta-data
             android:name="com.google.android.actions"
