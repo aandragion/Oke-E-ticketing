@@ -39,7 +39,7 @@ public class registrasi extends AppCompatActivity {
             etno_tlp,
             EdPassword,
             EdRPassword;
-    AwesomeText ImgShowHidePassword, ImgShowHidePassword1 ;
+    AwesomeText ImgShowHidePassword, ImgShowHidePassword1;
     TextView ConfirmPass;
     Button btnRegister;
     ProgressDialog loading;
@@ -57,22 +57,22 @@ public class registrasi extends AppCompatActivity {
         mContext = this;
         mApiService = UtilsApi.getAPIService();
 
-        etNama      = (EditText) findViewById(R.id.v_nama);
-        etEmail     = (EditText) findViewById(R.id.t_email);
-        etalamat    = (EditText) findViewById(R.id.t_alamat);
-        etno_tlp    = (EditText) findViewById(R.id.t_tlp);
-        EdPassword  = (EditText) findViewById(R.id.t_pass);
+        etNama = (EditText) findViewById(R.id.v_nama);
+        etEmail = (EditText) findViewById(R.id.t_email);
+        etalamat = (EditText) findViewById(R.id.t_alamat);
+        etno_tlp = (EditText) findViewById(R.id.t_tlp);
+        EdPassword = (EditText) findViewById(R.id.t_pass);
         EdRPassword = (EditText) findViewById(R.id.t_rpass);
-        btnRegister = (Button)   findViewById(R.id.b_daftar);
+        btnRegister = (Button) findViewById(R.id.b_daftar);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()){
-                       case R.id.b_daftar:
-                            if(validasi())
-                           requestRegister();
-                            break;
+                switch (view.getId()) {
+                    case R.id.b_daftar:
+                        if (validasi())
+                            requestRegister();
+                        break;
                 }
             }
         });
@@ -117,17 +117,19 @@ public class registrasi extends AppCompatActivity {
 
     private boolean validasi() {
         if (!validate.cek(etNama)
-                &&!validate.cek(etEmail)
-                &&!validate.cek(etalamat)
-                &&!validate.cek(etno_tlp)
-                &&!validate.cek(EdPassword)
-                &&!validate.cek(EdRPassword)) {
-            if (validate.cekPassword(EdRPassword,EdPassword.getText().toString(),EdRPassword.getText().toString())){
+                && !validate.cek(etEmail)
+                && !validate.cek(etalamat)
+                && !validate.cek(etno_tlp)
+                && !validate.cek(EdPassword)
+                && !validate.cek(EdRPassword)) {
+            if (validate.cekPassword(EdRPassword, EdPassword.getText().toString(), EdRPassword.getText().toString())) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
-        } else{ return false; }
+        } else {
+            return false;
+        }
     }
 
     private void requestRegister() {
@@ -180,5 +182,5 @@ public class registrasi extends AppCompatActivity {
         Intent intent = new Intent(registrasi.this, login.class);
         startActivity(intent);
     }
-    
+
 }

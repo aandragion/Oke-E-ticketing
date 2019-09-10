@@ -131,10 +131,12 @@ public class login extends AppCompatActivity {
                                     // Jika login berhasil maka data nama yang ada di response API
                                     // akan diparsing ke activity selanjutnya.
                                     Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
+                                    String id_user = jsonRESULTS.getJSONObject("id_user").getString("id_user");
                                     String username = jsonRESULTS.getJSONObject("user").getString("username");
                                     String email = jsonRESULTS.getJSONObject("user").getString("email");
                                     String alamat = jsonRESULTS.getJSONObject("user").getString("alamat");
                                     String no_tlp = jsonRESULTS.getJSONObject("user").getString("no_tlp");
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, id_user);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, username);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_ALAMAT, alamat);

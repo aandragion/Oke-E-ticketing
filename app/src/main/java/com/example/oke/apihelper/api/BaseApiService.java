@@ -27,6 +27,15 @@ public interface BaseApiService {
                                        @Field("password") String password,
                                        @Field("repassword") String repassword);
 
+    @FormUrlEncoded
+    @POST("up-profil.php")
+    Call<ResponseBody> editRequest(@Field("id_user") String id_user,
+                                        @Field("username") String nama,
+                                        @Field("email") String email,
+                                        @Field("alamat") String alamat,
+                                        @Field("no_tlp") String no_tlp,
+                                        @Field("password") String password);
+
     @GET("datafilm.php")
     Call<List<list_beranda>> getContact(
             @Query("item_type") String item_type

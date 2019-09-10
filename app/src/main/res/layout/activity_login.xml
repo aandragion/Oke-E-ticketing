@@ -107,7 +107,6 @@
                 android:gravity="center"
                 android:textColor="#029DDE"
                 android:textSize="20dp"
-
                 app:awesome_font="material_design"
                 app:awesome_icon="MD_VISIBILITY_OFF" />
 
