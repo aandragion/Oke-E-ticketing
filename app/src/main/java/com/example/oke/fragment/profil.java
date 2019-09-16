@@ -1,4 +1,4 @@
-package com.example.oke;
+package com.example.oke.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.oke.R;
 import com.example.oke.activity.edit_profil;
 import com.example.oke.activity.login;
 import com.example.oke.apihelper.SharedPrefManager;

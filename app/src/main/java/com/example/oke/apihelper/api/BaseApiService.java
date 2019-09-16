@@ -1,5 +1,8 @@
 package com.example.oke.apihelper.api;
 
+import com.example.oke.model.list_film;
+import com.example.oke.model.saldo;
+
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -37,7 +40,12 @@ public interface BaseApiService {
                                         @Field("password") String password);
 
     @GET("datafilm.php")
-    Call<List<list_beranda>> getContact(
+    Call<List<list_film>> getContact(
+            @Query("item_type") String item_type
+    );
+
+    @GET("ac_icash.php")
+    Call<saldo> getsaldo(
             @Query("item_type") String item_type
     );
 }

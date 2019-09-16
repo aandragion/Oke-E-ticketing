@@ -1,4 +1,4 @@
-package com.example.oke;
+package com.example.oke.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTabHost;
 
 import com.example.oke.R;
-import com.example.oke.play;
 
 public class coming extends Fragment {
 

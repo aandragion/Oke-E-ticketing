@@ -5,17 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 import com.example.oke.R;
 import com.example.oke.apihelper.SharedPrefManager;
-import com.example.oke.beranda;
-import com.example.oke.pesan;
-import com.example.oke.profil;
+import com.example.oke.fragment.beranda;
+import com.example.oke.fragment.pesan;
+import com.example.oke.fragment.profil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {

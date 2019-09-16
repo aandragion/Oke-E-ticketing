@@ -1,4 +1,4 @@
-package com.example.oke.activity;
+package com.example.oke;
 
 import android.text.TextUtils;
 import android.view.View;

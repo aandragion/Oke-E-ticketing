@@ -9,6 +9,7 @@ public class SharedPrefManager {
 
     public static final String SP_MAHASISWA_APP = "spMahasiswaApp";
     public static  final  String SP_ID = "id_user";
+    public static  final  String SP_ic = "saldo_icash";
     public static final String SP_NAMA = "username";
     public static final String SP_EMAIL = "email";
     public static final String SP_ALAMAT = "alamat";
@@ -40,6 +41,7 @@ public class SharedPrefManager {
         spEditor.putString(keySP, value);
         spEditor.putString(keySP, value);
         spEditor.putString(keySP, value);
+        spEditor.putString(keySP, value);
         spEditor.commit();
     }
     public void saveSPBoolean(String keySP, boolean value){
@@ -57,6 +59,10 @@ public class SharedPrefManager {
 
     public String getSPNama(String nama, String spNama) {
         return sp.getString(SP_NAMA,"");
+    }
+
+    public String getSP_ic(String nama, String spNama) {
+        return sp.getString(SP_ic,"");
     }
 
     public String getSpEmail(String nama, String spNama) {

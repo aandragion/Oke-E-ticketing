@@ -1,8 +1,8 @@
-package com.example.oke.adapter;
+package com.example.oke.model;
 
 import java.io.Serializable;
 
-class DataModel implements Serializable {
+public class DataModel implements Serializable {
     Integer viewType;
     String judul, konten, gambar;
 

@@ -1,4 +1,4 @@
-package com.example.oke;
+package com.example.oke.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -2,7 +2,6 @@ package com.example.oke.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -18,7 +17,8 @@ import com.example.oke.R;
 import com.example.oke.apihelper.SharedPrefManager;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
-import com.example.oke.profil;
+import com.example.oke.fragment.profil;
+import com.example.oke.validate;
 
 import org.json.JSONException;
 import org.json.JSONObject;

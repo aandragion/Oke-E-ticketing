@@ -6,9 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +17,7 @@ import android.widget.Toast;
 import com.example.oke.R;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
+import com.example.oke.validate;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -141,41 +140,43 @@ public class registrasi extends AppCompatActivity {
                 etalamat.getText().toString(),
                 etno_tlp.getText().toString(),
                 EdPassword.getText().toString(),
-                EdRPassword.getText().toString())
+                EdRPassword.getText().toString()
+        )
 
                 .enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        if (response.isSuccessful()) {
-                            Log.i("debug", "onResponse: BERHASIL");
-                            loading.dismiss();
-                            try {
-                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                if (jsonRESULTS.getString("error").equals("false")) {
-                                    Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(mContext, login.class));
-                                } else {
-                                    String error_message = jsonRESULTS.getString("error_msg");
-                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } else {
-                            Log.i("debug", "onResponse: GA BERHASIL");
-                            loading.dismiss();
-                        }
+                             @Override
+                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                 if (response.isSuccessful()) {
+                                     Log.i("debug", "onResponse: BERHASIL");
+                                     loading.dismiss();
+                                     try {
+                                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                         if (jsonRESULTS.getString("error").equals("false")) {
+                                             Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
+                                             startActivity(new Intent(mContext, login.class));
+                                         } else {
+                                             String error_message = jsonRESULTS.getString("error_msg");
+                                             Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                         }
+                                     } catch (JSONException e) {
+                                         e.printStackTrace();
+                                     } catch (IOException e) {
+                                         e.printStackTrace();
+                                     }
+                                 } else {
+                                     Log.i("debug", "onResponse: GA BERHASIL");
+                                     loading.dismiss();
+                                 }
 
-                    }
+                             }
 
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Log.e("debug", "onFailure: ERROR > " + t.getMessage());
-                        Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                             @Override
+                             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                 Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                                 Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
+                             }
+                         }
+                );
     }
 
     public void Login(View view) {

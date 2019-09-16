@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".beranda">
+    tools:context=".fragment.beranda">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/saldo"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_alignParentStart="true"

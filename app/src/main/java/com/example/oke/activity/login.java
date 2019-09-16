@@ -17,6 +17,7 @@ import com.example.oke.R;
 import com.example.oke.apihelper.SharedPrefManager;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
+import com.example.oke.validate;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +43,7 @@ public class login extends AppCompatActivity {
     boolean pwd_status = true;
 
     SharedPrefManager sharedPrefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +53,11 @@ public class login extends AppCompatActivity {
         mApiService = UtilsApi.getAPIService(); // meng-init yang ada di package apihelper
         sharedPrefManager = new SharedPrefManager(this);
 
-        if (sharedPrefManager.getSPSudahLogin()){
+        if (sharedPrefManager.getSPSudahLogin()) {
             startActivity(new Intent(login.this, MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
             finish();
         }
-
-
 
 
 //        EdUsername = (EditText) findViewById(R.id.t_user);
@@ -70,9 +70,9 @@ public class login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()){
+                switch (view.getId()) {
                     case R.id.b_login:
-                        if(validasi())
+                        if (validasi())
                             requestLogin();
                         break;
                 }
@@ -89,9 +89,8 @@ public class login extends AppCompatActivity {
 //        BtnLihatStatus = (Button) findViewById(R.id.b_login);
 
 
-
         // widget show hide password
-        ImgShowHidePassword = (AwesomeText)findViewById(R.id.ImgShowPassword);
+        ImgShowHidePassword = (AwesomeText) findViewById(R.id.ImgShowPassword);
 
         // lalu kita beri action agar show hide password nya bisa berfungsi
         ImgShowHidePassword.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +112,7 @@ public class login extends AppCompatActivity {
     }
 
     private boolean validasi() {
-        return (!validate.cek(etUser)&&!validate.cek(etPassword)) ? true : false;
+        return (!validate.cek(etUser) && !validate.cek(etPassword)) ? true : false;
     }
 
 
@@ -123,11 +122,11 @@ public class login extends AppCompatActivity {
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        if (response.isSuccessful()){
+                        if (response.isSuccessful()) {
                             loading.dismiss();
                             try {
                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                if (jsonRESULTS.getString("error").equals("false")){
+                                if (jsonRESULTS.getString("error").equals("false")) {
                                     // Jika login berhasil maka data nama yang ada di response API
                                     // akan diparsing ke activity selanjutnya.
                                     Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
@@ -168,5 +167,5 @@ public class login extends AppCompatActivity {
                     }
                 });
     }
-    }
+}
 

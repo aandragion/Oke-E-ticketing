@@ -1,4 +1,4 @@
-package com.example.oke;
+package com.example.oke.fragment;
 
 import android.os.Bundle;
 
@@ -13,10 +13,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.oke.activity.ad_beranda;
+import com.example.oke.R;
+import com.example.oke.adapter.ad_beranda;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
-import com.example.oke.apihelper.api.list_beranda;
+import com.example.oke.model.list_film;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class play extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private List<list_beranda> contacts;
+    private List<list_film> listfilm;
     private ad_beranda adapter;
     private BaseApiService apiInterface;
     ProgressBar progressBar;
@@ -57,20 +58,20 @@ public class play extends Fragment {
     private void fetchContact(String type) {
         apiInterface = UtilsApi.getAPIService();
 
-        Call<List<list_beranda>> call = apiInterface.getContact(type);
-        call.enqueue(new Callback<List<list_beranda>>() {
+        Call<List<list_film>> call = apiInterface.getContact(type);
+        call.enqueue(new Callback<List<list_film>>() {
             @Override
-            public void onResponse(Call<List<list_beranda>> call, Response<List<list_beranda>> response) {
+            public void onResponse(Call<List<list_film>> call, Response<List<list_film>> response) {
                 progressBar.setVisibility(View.GONE);
-                contacts = response.body();
-                adapter = new ad_beranda(contacts, getActivity());
+                listfilm = response.body();
+                adapter = new ad_beranda(listfilm, getActivity());
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 
             }
 
             @Override
-            public void onFailure(Call<List<list_beranda>> call, Throwable t) {
+            public void onFailure(Call<List<list_film>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Error\n"+t.toString(), Toast.LENGTH_LONG).show();
             }
