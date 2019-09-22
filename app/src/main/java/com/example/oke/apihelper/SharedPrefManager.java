@@ -14,6 +14,7 @@ public class SharedPrefManager {
     public static final String SP_EMAIL = "email";
     public static final String SP_ALAMAT = "alamat";
     public static final String SP_NO_TLP = "no_tlp";
+    public static final String SP_PASS = "password";
 
 
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
@@ -36,6 +37,7 @@ public class SharedPrefManager {
 //        return map;
 //    }
     public void saveSPString(String keySP, String value){
+        spEditor.putString(keySP, value);
         spEditor.putString(keySP, value);
         spEditor.putString(keySP, value);
         spEditor.putString(keySP, value);
@@ -75,5 +77,9 @@ public class SharedPrefManager {
 
     public String getSpNoTlp(String nama, String spNama) {
         return sp.getString(SP_NO_TLP,"");
+    }
+
+    public String getSpPass(String nama, String spNama) {
+        return sp.getString(SP_PASS,"");
     }
 }

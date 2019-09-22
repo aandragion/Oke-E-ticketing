@@ -5,15 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".fragment.coming">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="67dp"
+
+    <ProgressBar
+        android:id="@+id/prograss"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="183dp"
-        android:layout_marginTop="353dp"
-        android:text="Coming" />
-
+        />
 </RelativeLayout>

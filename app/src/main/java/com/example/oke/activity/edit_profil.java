@@ -2,6 +2,7 @@ package com.example.oke.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -24,6 +25,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import cyd.awesome.material.AwesomeText;
 import cyd.awesome.material.FontCharacterMaps;
@@ -38,7 +44,7 @@ public class edit_profil extends AppCompatActivity {
             alamat,
             no_tlp,
             password;
-    TextView id_user;
+    TextView id_user,passwordlama;
     Button btnEdit;
     SharedPrefManager sharedPrefManager;
     ProgressDialog loading;
@@ -46,6 +52,7 @@ public class edit_profil extends AppCompatActivity {
     BaseApiService mApiService;
     AwesomeText ImgShowHidePassword;
     boolean pwd_status = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +68,7 @@ public class edit_profil extends AppCompatActivity {
         alamat = (EditText) findViewById(R.id.talamat);
         no_tlp = (EditText) findViewById(R.id.tnotelp);
         password = (EditText) findViewById(R.id.tpass);
+        passwordlama= (TextView) findViewById(R.id.password);
         btnEdit = (Button) findViewById(R.id.b_edit);
 
         ImgShowHidePassword = (AwesomeText) findViewById(R.id.ShowPassword);
@@ -87,6 +95,7 @@ public class edit_profil extends AppCompatActivity {
         email.setText(sharedPrefManager.getSpEmail(SharedPrefManager.SP_EMAIL,""));
         alamat.setText(sharedPrefManager.getSpAlamat(SharedPrefManager.SP_ALAMAT,""));
         no_tlp.setText(sharedPrefManager.getSpNoTlp(SharedPrefManager.SP_NO_TLP,""));
+        passwordlama.setText(sharedPrefManager.getSpPass(SharedPrefManager.SP_PASS,""));
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,9 +128,13 @@ public class edit_profil extends AppCompatActivity {
                             Log.i("debug", "onResponse: BERHASIL");
                             loading.dismiss();
                             try {
-                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
                                 if (jsonRESULTS.getString("error").equals("false")) {
                                     Toast.makeText(mContext, "BERHASIL UPDATE", Toast.LENGTH_SHORT).show();
+                                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+                                    startActivity(new Intent(mContext, login.class)
+                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                    finish();
                                     finish();
                                 } else {
                                     String error_message = jsonRESULTS.getString("error_msg");
@@ -148,10 +161,40 @@ public class edit_profil extends AppCompatActivity {
     }
 
     private boolean validasi() {
-        return (!validate.cek(nama)
+        if (!validate.cek(nama)
                 && !validate.cek(email)
                 && !validate.cek(alamat)
                 && !validate.cek(no_tlp)
-                && !validate.cek(password)) ? true : false;
+                && !validate.cek(password)) {
+            if (validate.cekPassword(password, passwordlama.getText().toString(), md5Java(password.getText().toString()))) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+    public static String md5Java(String message)
+    {
+        String digest = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hash = md.digest(message.getBytes("UTF-8"));
+            //merubah byte array ke dalam String Hexadecimal
+            StringBuilder sb = new StringBuilder(2*hash.length);
+            for(byte b : hash)
+            {
+                sb.append(String.format("%02x", b&0xff));
+            }
+            digest = sb.toString();
+        } catch (UnsupportedEncodingException ex)
+        {
+            Logger.getLogger(edit_profil.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex)
+        {
+            Logger.getLogger(edit_profil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return digest;
     }
 }

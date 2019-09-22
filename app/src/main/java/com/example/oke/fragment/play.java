@@ -39,6 +39,7 @@ public class play extends Fragment {
     ProgressBar progressBar;
     TextView search;
     String[] item;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class play extends Fragment {
 
         progressBar = view.findViewById(R.id.prograss);
         recyclerView = view.findViewById(R.id.recyclerView);
-        layoutManager = new GridLayoutManager(getActivity(),2);
+        layoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         fetchContact("film");
@@ -73,7 +74,7 @@ public class play extends Fragment {
             @Override
             public void onFailure(Call<List<list_film>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Error\n"+t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Error\n" + t.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }

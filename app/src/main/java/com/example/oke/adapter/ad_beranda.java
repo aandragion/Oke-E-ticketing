@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.oke.R;
-import com.example.oke.activity.Constant;
+import com.example.oke.model.Constant;
 import com.example.oke.model.DataModel;
 import com.example.oke.activity.detailFilm;
 import com.example.oke.model.list_film;
@@ -24,10 +24,9 @@ import java.util.List;
 public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
 
     View v;
-     List<list_film> daftarfilm;
-     Context context;
-     ArrayList<DataModel> dataModelArrayList;
-     Activity activity;
+    List<list_film> daftarfilm;
+    Context context;
+
 
     public ad_beranda(List<list_film> contacts, Context context) {
         this.daftarfilm = contacts;
@@ -58,12 +57,26 @@ public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
                 String id = daftarfilm.get(position).getId();
                 String judulFilm = daftarfilm.get(position).getJudul_film();
                 String gambar = daftarfilm.get(position).getGambar();
+                String sinopsis = daftarfilm.get(position).getSinopsis();
+                String trailer = daftarfilm.get(position).getTrailer();
+                String genre = daftarfilm.get(position).getId_genre();
+                String status = daftarfilm.get(position).getStatus_film();
+                String total = daftarfilm.get(position).getTotal_view();
+                String durasi = daftarfilm.get(position).getDurasi();
+                String rilis = daftarfilm.get(position).getRilis();
 
-                Intent intent = new Intent(activity, detailFilm.class);
+                Intent intent = new Intent(v.getContext(), detailFilm.class);
                 intent.putExtra(Constant.KEY_ID_FILM, id);
                 intent.putExtra(Constant.KEY_JUDUL_FILM, judulFilm);
                 intent.putExtra(Constant.KEY_GAMBAR, gambar);
-                activity.startActivity(intent);
+                intent.putExtra(Constant.KEY_SINOPSIS, sinopsis);
+                intent.putExtra(Constant.KEY_TRAILER, trailer);
+                intent.putExtra(Constant.KEY_GENRE, genre);
+                intent.putExtra(Constant.KEY_STATUS, status);
+                intent.putExtra(Constant.KEY_TOTAL, total);
+                intent.putExtra(Constant.KEY_DURASI, durasi);
+                intent.putExtra(Constant.KEY_RILIS, rilis);
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -78,9 +91,10 @@ public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
         return daftarfilm.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView judul;
         ImageView gambar;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             gambar = itemView.findViewById(R.id.gambar);
