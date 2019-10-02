@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -32,7 +33,9 @@ public class play extends Fragment {
     }
 
     private RecyclerView recyclerView;
+    private RecyclerView recycler;
     private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layout;
     private List<list_film> listfilm;
     private ad_beranda adapter;
     private BaseApiService apiInterface;
@@ -53,6 +56,13 @@ public class play extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         fetchContact("film");
+
+        progressBar = view.findViewById(R.id.prograss);
+        recycler = view.findViewById(R.id.popular);
+        layout = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        recycler.setLayoutManager(layout);
+        recycler.setHasFixedSize(true);
+        popular("popular");
         return view;
     }
 
@@ -67,6 +77,29 @@ public class play extends Fragment {
                 listfilm = response.body();
                 adapter = new ad_beranda(listfilm, getActivity());
                 recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<list_film>> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), "Error\n" + t.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void popular(String type) {
+        apiInterface = UtilsApi.getAPIService();
+
+        Call<List<list_film>> call = apiInterface.getPopular(type);
+        call.enqueue(new Callback<List<list_film>>() {
+            @Override
+            public void onResponse(Call<List<list_film>> call, Response<List<list_film>> response) {
+                progressBar.setVisibility(View.GONE);
+                listfilm = response.body();
+                adapter = new ad_beranda(listfilm, getActivity());
+                recycler.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 
             }

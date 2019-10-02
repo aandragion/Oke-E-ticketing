@@ -136,12 +136,14 @@ public class login extends AppCompatActivity {
                                     String alamat = jsonRESULTS.getJSONObject("user").getString("alamat");
                                     String no_tlp = jsonRESULTS.getJSONObject("user").getString("no_tlp");
                                     String pass = jsonRESULTS.getJSONObject("user").getString("password");
+                                    String photo = jsonRESULTS.getJSONObject("user").getString("photo");
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, id_user);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, username);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_ALAMAT, alamat);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_NO_TLP, no_tlp);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_PASS, pass);
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_PHOTO, photo);
                                     // Shared Pref ini berfungsi untuk menjadi trigger session login
                                     sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                                     startActivity(new Intent(mContext, MainActivity.class)

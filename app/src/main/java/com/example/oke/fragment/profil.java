@@ -10,18 +10,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.oke.R;
 import com.example.oke.activity.edit_profil;
 import com.example.oke.activity.login;
 import com.example.oke.apihelper.SharedPrefManager;
+import com.squareup.picasso.Picasso;
 
 
 public class profil extends Fragment {
     private ImageButton btnClickMe;
     SharedPrefManager sharedPrefManager;
-    private TextView nama, email, alamat, no_telp;
+    private TextView nama, email, alamat, no_telp, mgambar;
+    ImageView photo;
     private Button btnEdit;
     private String id;
     public profil() {
@@ -53,6 +56,11 @@ public class profil extends Fragment {
         email.setText(sharedPrefManager.getSpEmail(SharedPrefManager.SP_EMAIL,""));
         alamat.setText(sharedPrefManager.getSpAlamat(SharedPrefManager.SP_ALAMAT,""));
         no_telp.setText(sharedPrefManager.getSpNoTlp(SharedPrefManager.SP_NO_TLP,""));
+        mgambar.setText(sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,""));
+        String fullUrlImage = "http://192.168.8.109/admin-api/gambar/" + mgambar;
+        Picasso.with(getActivity())
+                .load(fullUrlImage)
+                .into(photo);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -67,6 +75,8 @@ public class profil extends Fragment {
         email = view.findViewById(R.id.email);
         alamat = view.findViewById(R.id.alamat);
         no_telp = view.findViewById(R.id.no_telp);
+        photo = view.findViewById(R.id.photoprofil);
+        mgambar = view.findViewById(R.id.textView21);
         btnEdit = view.findViewById(R.id.bt_edit);
 
     }

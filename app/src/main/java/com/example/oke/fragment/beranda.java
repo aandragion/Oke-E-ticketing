@@ -34,24 +34,26 @@ public class beranda extends Fragment {
     private Button btnEdit;
     private BaseApiService apiInterface;
     SharedPrefManager sharedPrefManager;
+
     public beranda() {
         // Required empty public constructor
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
         sharedPrefManager = new SharedPrefManager(getActivity());
-        mTabHost = (FragmentTabHost)view.findViewById(android.R.id.tabhost);
-        mTabHost.setup(getActivity(),getChildFragmentManager(),R.id.realtabcontent);
-        mTabHost.addTab(mTabHost.newTabSpec("play").setIndicator("playing now"),play.class,null);
-        mTabHost.addTab(mTabHost.newTabSpec("coming").setIndicator("Coming soon"),coming.class,null);
+        mTabHost = (FragmentTabHost) view.findViewById(android.R.id.tabhost);
+        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
+        mTabHost.addTab(mTabHost.newTabSpec("play").setIndicator("playing now"), play.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("coming").setIndicator("Coming soon"), coming.class, null);
         btnEdit = (Button) view.findViewById(R.id.saldo);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View v){
+            public void onClick(View v) {
                 String id = saldo.getId();
                 String icash = saldo.getSaldo_icash();
 
@@ -66,7 +68,7 @@ public class beranda extends Fragment {
         });
 
 //        btnEdit.setText( sharedPrefManager.getSPNama(SharedPrefManager.SP_NAMA,""));
-        fetchContact(""+sharedPrefManager.getSPId(SharedPrefManager.SP_ID,""));
+        fetchContact("" + sharedPrefManager.getSPId(SharedPrefManager.SP_ID, ""));
         return view;
     }
 
@@ -79,18 +81,17 @@ public class beranda extends Fragment {
             @Override
             public void onResponse(Call<saldo_icash> call, Response<saldo_icash> response) {
                 saldo = response.body();
-                btnEdit.setText("Rp." +saldo.getSaldo_icash());
+                btnEdit.setText("Rp." + saldo.getSaldo_icash());
 
             }
 
             @Override
             public void onFailure(Call<saldo_icash> call, Throwable t) {
-                Toast.makeText(getActivity(), "Error\n"+t.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Error\n" + t.toString(), Toast.LENGTH_LONG).show();
             }
         });
 
     }
-
 
 
 }

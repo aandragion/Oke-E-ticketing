@@ -22,10 +22,17 @@
     <!--<include-->
         <!--layout="@layout/activity_logout"-->
         <!--android:id="@+id/button4"/>-->
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#59A869" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/photoprofil"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="20dp">
@@ -155,7 +162,7 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/photoprofil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

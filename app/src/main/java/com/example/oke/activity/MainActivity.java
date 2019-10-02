@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.example.oke.R;
 import com.example.oke.apihelper.SharedPrefManager;
 import com.example.oke.fragment.beranda;
-import com.example.oke.fragment.pesan;
+import com.example.oke.fragment.daftar_pesan;
 import com.example.oke.fragment.profil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -41,7 +41,7 @@ Button btnLogout;
         BottomNavigationView navigationView = findViewById(R.id.bottom_nav);
 
         final beranda berandaFragment = new beranda();
-        final pesan pesanFragment = new pesan();
+        final daftar_pesan pesanFragment = new daftar_pesan();
         final profil profilFragment = new profil();
 
 

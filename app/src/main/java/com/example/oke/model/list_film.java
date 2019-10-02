@@ -21,19 +21,15 @@ public class list_film {
     public String getId() {
         return id_film;
     }
-
     public String getJudul_film() {
         return judul_film;
     }
-
     public String getGambar() {
         return gambar;
     }
-
     public String getSinopsis() {
         return sinopsis;
     }
-
     public String getTrailer() {
         return trailer;
     }
@@ -43,7 +39,6 @@ public class list_film {
     public String getStatus_film() {
         return status_film;
     }
-
     public String getDurasi() {
         return durasi;
     }

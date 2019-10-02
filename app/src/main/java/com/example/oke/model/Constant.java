@@ -14,4 +14,16 @@ public class Constant {
 
     public static final String KEY_ID_ICASH = "keyidicash";
     public static final String KEY_SALDO = "keysaldo";
+
+    public static final String KEY_ID_BANK = "keyIdBank";
+    public static final String KEY_BANK = "keybank";
+    public static final String KEY_LOGO = "keylogo";
+    public static final String KEY_REK = "keyrek";
+    public static final String KEY_PEMILIK = "keypemilik";
+
+    public static final String KEY_NOMINAL = "keynominal";
+    public static final String KEY_NOM = "keynom";
+
+
+
 }

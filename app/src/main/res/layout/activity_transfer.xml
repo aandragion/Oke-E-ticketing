@@ -1,9 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".transfer">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="50dp"
+                android:text="Mohon selesaikan pembayaran Anda sebelum Batas waktu yang telah di tentukan"
+                android:textAlignment="center" />
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_below="@+id/textView24"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/roun">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="13dp"
+                    app:srcCompat="@mipmap/ic_launcher_round" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@+id/imageView4"
+                    android:text="No Rekening"
+                    android:textColor="#E7FFFF"
+                    />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView23"
+                    android:layout_alignStart="@+id/textView23"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Nama"
+                    android:textColor="#E7FFFF" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:text="Jumlah yang harus di Bayar"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/nominal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView25"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Nominal"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nominal"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:text="Pemesanan akan otomatis dibatalkan apabila Anda tidak melakukan pembayaran lebih dari waktu yang telah di tentukan"
+                android:textAlignment="center" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="70dp"
+        android:text="MENUNGGU PEMBAYARAN"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded"
+        android:text="Kembali"
+        android:textColor="#E7FFFF" />
+
+</RelativeLayout>
