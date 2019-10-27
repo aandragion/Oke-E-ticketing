@@ -7,23 +7,31 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.oke.R;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
 import com.example.oke.model.Constant;
+import com.example.oke.pesan;
 import com.squareup.picasso.Picasso;
 
 public class detailFilm extends AppCompatActivity {
     Context mContext;
     BaseApiService mApiService;
-    private String mId, mjudulfilm, mgambar, msinopsis, mtrailer, mgenre, mdurasi, mrilis, mstatus;
-    private TextView judulfilm, sinopsis, genre, durasi, rilis;
+    private String mId, mjudulfilm, mgambar, msinopsis, mtrailer, mgenre, mdurasi, mrilis, mstatus,mrating;
+    private TextView judulfilm, sinopsis, genre, durasi, rilis, rating;
     VideoView trailer;
+    Button pesanan;
     ImageView gambar;
     DisplayMetrics dm;
 
@@ -39,6 +47,8 @@ public class detailFilm extends AppCompatActivity {
         trailer=(VideoView) findViewById(R.id.trailer);
         durasi =(TextView) findViewById(R.id.durasi);
         rilis =(TextView) findViewById(R.id.rilis);
+        rating  =(TextView) findViewById(R.id.rating);
+        pesanan =(Button) findViewById(R.id.pesan);
         mContext = this;
         mApiService = UtilsApi.getAPIService();
 
@@ -51,6 +61,7 @@ public class detailFilm extends AppCompatActivity {
         mgenre = intent.getStringExtra(Constant.KEY_GENRE);
         mdurasi = intent.getStringExtra(Constant.KEY_DURASI);
         mrilis = intent.getStringExtra(Constant.KEY_RILIS);
+        mrating = intent.getStringExtra(Constant.KEY_TOTAL);
 
         String FullUrlVideo = "http://192.168.8.109/admin/upload/vdfilm/" + mtrailer;
         String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + mgambar;
@@ -58,10 +69,12 @@ public class detailFilm extends AppCompatActivity {
         judulfilm.setText(mjudulfilm);
         durasi.setText(mdurasi);
         rilis.setText(mrilis);
+        rating.setText(mrating);
 
         sinopsis.setText(msinopsis);
-        Picasso.with(detailFilm.this)
+        Glide.with(detailFilm.this)
                 .load(fullUrlImage)
+                .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(7)))
                 .into(gambar);
         genre.setText(mgenre);
 
@@ -76,6 +89,21 @@ public class detailFilm extends AppCompatActivity {
 
         trailer.setVideoURI(Uri.parse(FullUrlVideo));
         trailer.setMediaController(new MediaController(this));
+
+        pesanan.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), pesan.class);
+                            intent.putExtra(Constant.KEY_ID_FILM, mId);
+                            intent.putExtra(Constant.KEY_GAMBAR, mgambar);
+                            intent.putExtra(Constant.KEY_JUDUL_FILM, mjudulfilm);
+//                            intent.putExtra(Constant.KEY_LOGO, mlogo);
+
+                            startActivity(intent);
+//                            intent.putExtra("variabelumur", mlogo.getText().toString());
+            }
+        });
+
+
 //        trailer.start();
 //        Picasso.with(detailFilm.this)
 //                .load(FullUrlVideo)

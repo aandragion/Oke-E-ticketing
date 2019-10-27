@@ -1,9 +1,19 @@
 package com.example.oke.apihelper.api;
 
 import com.example.oke.model.list_bank;
+import com.example.oke.model.list_booking;
+import com.example.oke.model.list_dpesan;
 import com.example.oke.model.list_film;
+import com.example.oke.model.list_jadwal;
+import com.example.oke.model.list_jam;
+import com.example.oke.model.list_kursi;
+import com.example.oke.model.list_pemasukkan;
+import com.example.oke.model.list_pengeluaran;
+import com.example.oke.model.list_studio;
 import com.example.oke.model.saldo_icash;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -36,7 +46,35 @@ public interface BaseApiService {
                                        @Field("password") String password,
                                        @Field("repassword") String repassword);
 
+    @FormUrlEncoded
+    @POST("transfer.php")
+    Call<ResponseBody> transferRequest(@Field("tanggal") String todayString,
+                                       @Field("id_user") String id_user,
+                                       @Field("id_bank") String mId,
+                                       @Field("jumlah_transfer") String jumlah_transfer,
+//                                       @Field("rek_pemilik") String rek_pemilik,
+                                       @Field("n_pemilik") String n_pemilik,
+                                       @Field("bts_topup") String tomorrowAsString);
+
 //    @FormUrlEncoded
+//    @POST("pengeluaran.php")
+//    Call<ResponseBody> keluarRequest(@Field("id_user") String mId_user,
+//                                       @Field("id_film") String mIdf,
+//                                       @Field("harga") String mharga,
+//                                       @Field("jumlah") String mjumlah,
+//                                       @Field("total") String mtotal);
+
+    @FormUrlEncoded
+    @POST("pesan.php")
+    Call<ResponseBody> pesanRequest(@Field("id_user") String mId_user,
+                                    @Field("id_film") String mIdf,
+                                    @Field("id_jadwal") String mId,
+                                    @Field("kursi") String mnokursi,
+                                    @Field("jumlah") String mjumlah,
+                                    @Field("total") String mtotal,
+                                    @Field("id_status") String mstatus);
+
+    //    @FormUrlEncoded
 //    @POST("up-profil.php")
 //    Call<ResponseBody> editRequest(@Field("id_user") String id_user,
 //                                   @Field("username") String nama,
@@ -49,7 +87,7 @@ public interface BaseApiService {
 
     @Multipart
     @POST("up-profil.php")
-    Call<ResponseBody> editProfil(@Part("id_user")RequestBody id_user,
+    Call<ResponseBody> editProfil(@Part("id_user") RequestBody id_user,
                                   @Part("username") RequestBody nama,
                                   @Part("email") RequestBody email,
                                   @Part("alamat") RequestBody alamat,
@@ -64,10 +102,40 @@ public interface BaseApiService {
             @Query("item_type") String item_type
     );
 
+    @GET("datapesan.php")
+    Call<List<list_dpesan>> getDpesan(
+            @Query("item_type") String item_type
+    );
+
+    @GET("datapemasukkan.php")
+    Call<List<list_pemasukkan>> getPemasukkan(
+            @Query("item_type") String item_type
+    );
+
+    @GET("datapengeluaran.php")
+    Call<List<list_pengeluaran>> getPengeluaran(
+            @Query("item_type") String item_type
+    );
+
     @GET("datacoming.php")
     Call<List<list_film>> getComing(
             @Query("item_type") String item_type
     );
+
+    @GET("jadwal.php")
+    Call<List<list_jadwal>> getJadwal(
+            @Query("item_type") String item_type
+    );
+
+//    @GET("listjam.php")
+//    Call<List<list_jam>> getJam(
+//            @Query("item_type") String item_type
+//    );
+//
+//    @GET("liststudio.php")
+//    Call<List<list_studio>> getStudio(
+//            @Query("item_type") String item_type
+//    );
 
     @GET("datapopular.php")
     Call<List<list_film>> getPopular(
@@ -79,8 +147,20 @@ public interface BaseApiService {
             @Query("item_type") String item_type
     );
 
+    @GET("kursi.php")
+    Call<List<list_kursi>> getKursi(
+            @Query("item_type") String item_type
+    );
+
+    @GET("booking.php")
+    Call<List<list_kursi>> getBooking(
+            @Query("item_type") String item_type
+    );
+
     @GET("ac_icash.php")
     Call<saldo_icash> getsaldo(
             @Query("item_type") String item_type
     );
+
+//    Call<ResponseBody> transferRequest(String toString, String toString1, String toString2, String tomorrowAsString);
 }

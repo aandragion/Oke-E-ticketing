@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.oke.R;
 import com.example.oke.activity.topup;
 import com.example.oke.bank;
+import com.example.oke.library.format_idr;
 import com.example.oke.model.Constant;
 import com.example.oke.model.nominal;
 
@@ -42,19 +43,18 @@ public class ad_nominal extends
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         nominal item = list.get(position);
 
-        String jumlah = item.getJumlah();
+        final String jumlah = item.getJumlah();
 
-        holder.jml_nominal.setText(jumlah);
+        holder.jml_nominal.setText(format_idr.toRupiah(""+jumlah) );
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 //memanggil detailfilm
-                String jml = list.get(position).getJumlah();
-
+//                String jml = list.get(position).getJumlah();
 
                 Intent intent = new Intent(v.getContext(), bank.class);
-                intent.putExtra(Constant.KEY_NOMINAL, jml);
+                intent.putExtra(Constant.KEY_NOMINAL, jumlah);
 
                 v.getContext().startActivity(intent);
             }

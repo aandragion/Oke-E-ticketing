@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- pressed-->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/bootstrap_default_pressed" />
+            <stroke android:width="2dp" android:color="#029DDE" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <!-- disabled-->
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="@color/bootstrap_default_disabled" />
+            <stroke android:width="2dp" android:color="#029DDE" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <!-- default-->
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" />
+            <stroke android:width="2dp" android:color="#029DDE" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+</selector><!-- From: file:/Users/daniellevass/GitHub/Awesome-Material_2/AwesomeMaterial/awesomematerial/src/main/res/drawable/button_bootstrap_rounded_default.xml -->

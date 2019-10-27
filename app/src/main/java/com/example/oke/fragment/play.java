@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class play extends Fragment {
     private ad_beranda adapter;
     private BaseApiService apiInterface;
     ProgressBar progressBar;
+
     TextView search;
     String[] item;
 
@@ -63,6 +65,7 @@ public class play extends Fragment {
         recycler.setLayoutManager(layout);
         recycler.setHasFixedSize(true);
         popular("popular");
+
         return view;
     }
 

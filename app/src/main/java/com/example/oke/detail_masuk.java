@@ -1,16 +1,14 @@
-package com.example.oke.activity;
+package com.example.oke;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.oke.R;
-
-public class buktipsn extends AppCompatActivity {
+public class detail_masuk extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buktipsn);
+        setContentView(R.layout.activity_detail_masuk);
     }
 }

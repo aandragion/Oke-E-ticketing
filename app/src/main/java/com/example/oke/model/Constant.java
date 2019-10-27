@@ -24,6 +24,21 @@ public class Constant {
     public static final String KEY_NOMINAL = "keynominal";
     public static final String KEY_NOM = "keynom";
 
+    public static final String KEY_BATAS = "keybatas";
+
+    public static final String KEY_ID_JWL = "keyjadwal";
+    public static final String KEY_TGL = "keytgl";
+    public static final String KEY_JM = "keyjam";
+    public static final String KEY_HARGA = "keyharga";
+    public static final String KEY_STUDIO = "keystudio";
+
+    public static final String KEY_ID_PESAN = "keyidpesan";
+    public static final String KEY_TGL_PSN = "keytglpsn";
+    public static final String KEY_KURSI = "keykursi";
+    public static final String KEY_JML_PSN = "keyjmlpsn";
+    public static final String KEY_TOTAL_PSN = "keytotalpsn";
+    public static final String KEY_STATUS_PSN = "keystatuspsn";
+
 
 
 }

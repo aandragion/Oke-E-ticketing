@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/cobaroun10dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tgl_keluar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/ic_keluar"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/jdl_keluar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="Judul"
+                android:textColor="#029DDE"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nom_keluar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="#FF0000"
+                android:layout_marginEnd="10dp"
+                android:text="nominal" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tgl_keluar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="tanggal"
+            android:textColor="#000000" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

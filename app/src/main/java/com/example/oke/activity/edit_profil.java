@@ -36,6 +36,7 @@ import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -136,6 +137,13 @@ public class edit_profil extends AppCompatActivity {
         alamat.setText(sharedPrefManager.getSpAlamat(SharedPrefManager.SP_ALAMAT, ""));
         no_tlp.setText(sharedPrefManager.getSpNoTlp(SharedPrefManager.SP_NO_TLP, ""));
         passwordlama.setText(sharedPrefManager.getSpPass(SharedPrefManager.SP_PASS, ""));
+
+        String fullUrlImage = "http://192.168.8.109/admin-api/gambar/" + sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"");
+        Picasso.with(edit_profil.this)
+                .load(fullUrlImage)
+                .into(photo);
+
+//        namaFile = FileUtils2.getRealPath(edit_profil.this, contentURI);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

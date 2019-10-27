@@ -22,12 +22,6 @@
     <!--<include-->
         <!--layout="@layout/activity_logout"-->
         <!--android:id="@+id/button4"/>-->
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="#59A869" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -70,7 +64,7 @@
                 android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nama"
-                android:layout_alignEnd="@+id/textView7"
+                android:layout_alignEnd="@+id/t_duduk"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="55dp"
                 android:layout_marginTop="20dp"
@@ -94,7 +88,7 @@
                 android:textColor="#E2FDFE" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/t_duduk"
                 android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/email"
@@ -114,7 +108,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_toEndOf="@+id/textView7"
+                android:layout_toEndOf="@+id/t_duduk"
                 android:background="@drawable/rounded"
                 android:paddingLeft="7dp"
                 android:paddingRight="7dp"
@@ -163,8 +157,8 @@
 
     <ImageView
         android:id="@+id/photoprofil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="84dp"

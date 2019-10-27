@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/gbr_psn"
+        android:layout_width="120dp"
+        android:layout_height="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        tools:ignore="MissingConstraints"
+        app:srcCompat="@mipmap/ic_launcher"  />
+
+    <Button
+        android:id="@+id/bayar_rincian"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded"
+        android:text="Bayar"
+        android:textColor="#E7FFFF"
+        android:textSize="15dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bayar_rincian"
+        android:layout_below="@+id/gbr_psn">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="0dp"
+                    android:paddingLeft="7dp"
+                    android:text="Nonton"
+                    android:textSize="16dp"
+                    android:textColor="#E7FFFF" />
+
+                <TextView
+                    android:id="@+id/tgl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingLeft="7dp"
+                    android:text="Tanggal"
+                    android:textSize="16dp"
+                    android:textColor="#E7FFFF" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel"
+                android:layout_alignStart="@+id/rel"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:text="Nama Film" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nm_film"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="15dp"
+                android:text="Tempat Duduk" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/t_duduk"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="15dp"
+                android:text="Studio" />
+
+            <TextView
+                android:id="@+id/nm_film"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView3"
+                android:layout_alignEnd="@+id/rel"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="12dp"
+                android:layout_toEndOf="@+id/textView3"
+                android:text="jdl film"
+                />
+
+            <TextView
+                android:id="@+id/t_duduk"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nm_film"
+                android:layout_alignEnd="@+id/nm_film"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+
+                android:layout_toEndOf="@+id/textView4"
+                android:text="tempat duduk" />
+
+            <TextView
+                android:id="@+id/studio_psn"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/t_duduk"
+                android:layout_alignEnd="@+id/t_duduk"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/textView5"
+                android:text="studio" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/studio_psn"
+                android:layout_alignStart="@+id/rel"
+                android:layout_alignEnd="@+id/rel"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/rounded"
+                android:paddingLeft="7dp"
+                android:text="Rincian Harga"
+                android:textSize="16dp"
+                android:textColor="#E7FFFF" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView9"
+                android:layout_alignStart="@+id/textView9"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:text="Jumlah Pesanan" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jml_psn"
+                android:layout_alignStart="@+id/textView9"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:text="Harga" />
+
+            <TextView
+                android:id="@+id/jml_psn"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView9"
+                android:layout_alignEnd="@+id/textView9"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:layout_toEndOf="@+id/textView10"
+                android:text="jml" />
+
+
+            <TextView
+                android:id="@+id/hrg_psan"
+                android:layout_width="138dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jml_psn"
+                android:layout_alignEnd="@+id/jml_psn"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/textView11"
+                android:text="harga" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:id="@+id/garis"
+                android:layout_height="2dp"
+                android:layout_below="@+id/textView11"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="25dp"
+                android:background="#bbb" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/garis"
+                android:layout_alignEnd="@+id/textView9"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="25dp"
+                android:text="Total"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

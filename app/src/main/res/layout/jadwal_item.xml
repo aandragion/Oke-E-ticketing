@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/roun">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/studio_psn"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView2"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                app:srcCompat="@drawable/ic_tiket"-->
+<!--                tools:ignore="VectorDrawableCompat" />-->
+
+            <TextView
+                android:id="@+id/jam_jadwal"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@+id/jdl_keluar"
+                android:background="@drawable/roundedcorner"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="Jam"
+                android:textAlignment="center"
+                android:textColor="#029DDE"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/jdl_keluar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1.5"
+                android:background="@drawable/roundedcorner"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="Harga"
+                android:textAlignment="center"
+                android:textColor="#029DDE"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/studio_psn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:textColor="#E7FFFF"
+            android:layout_marginEnd="10dp"
+            android:text="1"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="2dp"
+            android:layout_toStartOf="@+id/studio_psn"
+            android:text="Studio"
+            android:textStyle="bold"
+            android:textColor="#E7FFFF"/>
+
+        <TextView
+            android:id="@+id/tgl_jadwal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="tanggal"
+            android:textColor="#E7FFFF"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>

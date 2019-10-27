@@ -134,13 +134,13 @@ public class topup extends AppCompatActivity {
 
     private List<nominal> getnominalList() {
         List<nominal> jumlah = new ArrayList<>();
-        jumlah.add(new nominal("10.000"));
-        jumlah.add(new nominal("25.000"));
-        jumlah.add(new nominal("50.000"));
-        jumlah.add(new nominal("100.000"));
-        jumlah.add(new nominal("250.000"));
-        jumlah.add(new nominal("500.000"));
-        jumlah.add(new nominal("1.000.000"));
+        jumlah.add(new nominal("10000"));
+        jumlah.add(new nominal("25000"));
+        jumlah.add(new nominal("50000"));
+        jumlah.add(new nominal("100000"));
+        jumlah.add(new nominal("250000"));
+        jumlah.add(new nominal("500000"));
+        jumlah.add(new nominal("1000000"));
         return jumlah;
     }
 }

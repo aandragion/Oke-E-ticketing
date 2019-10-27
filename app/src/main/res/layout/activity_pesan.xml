@@ -4,70 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     tools:context=".pesan">
 
+<!--    <Button-->
+<!--        android:id="@+id/lanjut"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginEnd="5dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:background="@drawable/rounded"-->
+<!--        android:text="lanjut"-->
+<!--        android:textColor="#E7FFFF" />-->
+
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-  android:layout_centerHorizontal="true"
+        android:id="@+id/gbr"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/imageView2"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/gbr"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+<!--            <Button-->
+<!--                android:id="@+id/buttonplus"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_alignTop="@+id/buttonmin"-->
+<!--                android:layout_toEndOf="@+id/jumlah"-->
+<!--                android:background="@drawable/kotak"-->
+<!--                android:text="+"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/buttonmin"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_below="@+id/listjadwal"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:background="@drawable/kotak"-->
+<!--                android:text="-"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/jumlah"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignTop="@+id/buttonmin"-->
+<!--                android:layout_marginStart="0dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:layout_toEndOf="@+id/buttonmin"-->
+<!--                android:background="@drawable/roun"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:text="0"-->
+<!--                android:textColor="#E7FFFF"-->
+<!--                android:textSize="20dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView29"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/listjadwal"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginTop="17dp"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:text="Harga"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textStyle="bold" />-->
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listhari"
+                android:id="@+id/listjadwal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/spinner"
-                android:layout_marginTop="5dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listjam"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/listhari"
-                android:layout_marginTop="5dp"/>
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="134dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/listjam"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/roun"
-                android:inputType="textPersonName"
-                android:paddingLeft="15dp"
-                android:text="Name" />
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/listjam"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:text="TextView"
-                android:textStyle="bold" />
+                android:layout_marginTop="5dp" />
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

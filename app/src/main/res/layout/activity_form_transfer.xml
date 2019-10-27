@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".form_transfer">
 
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#00FFFFFF" />
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
@@ -119,20 +126,21 @@
                     android:textColorHint="#DBFAFE"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    app:boxStrokeColor="#DBFAFE">
+                    app:boxStrokeColor="#DBFAFE"
+                    android:visibility="gone">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tnorek"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="No Rekening"
-                        android:inputType="textEmailAddress"
+                        android:inputType="number"
                         android:textColor="#DBFAFE"
                         android:textColorLink="#DBFAFE" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/email"
+                    android:id="@+id/pemilik"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="349dp"
                     android:layout_height="match_parent"
@@ -145,11 +153,10 @@
                     app:boxStrokeColor="#DBFAFE">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/temail"
+                        android:id="@+id/tpemilik"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Nama Pemilik Rekening"
-                        android:inputType="textEmailAddress"
                         android:textColor="#DBFAFE"
                         android:textColorLink="#DBFAFE" />
                 </com.google.android.material.textfield.TextInputLayout>
