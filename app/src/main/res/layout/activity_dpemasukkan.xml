@@ -1,9 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".dpemasukkan">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/cobaroun10dp">
+
+        <ImageView
+            android:id="@+id/bank_dmasuk"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Tanggal Transaksi" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tgl_dmasuk"
+            android:layout_alignStart="@+id/textView13"
+            android:layout_marginTop="5dp"
+            android:text="No Rekening Tujuan" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/norek_dmasuk"
+            android:layout_alignStart="@+id/textView14"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:text="Nama Tujuan" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tujuan_dmasuk"
+            android:layout_alignStart="@+id/textView13"
+            android:layout_marginTop="5dp"
+            android:text="Nama Pengirim" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kirim_dmasuk"
+            android:layout_alignStart="@+id/textView21"
+            android:layout_marginTop="5dp"
+            android:text="Jumlah Topup" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jml_dmasuk"
+            android:layout_alignStart="@+id/textView13"
+            android:layout_marginTop="5dp"
+            android:text="Status Topup" />
+
+        <View
+            android:id="@+id/garis"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_below="@+id/status_dmasuk"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="7dp"
+            android:paddingBottom="5dp"
+            android:backgroundTint="#029DDE"
+            android:layout_marginEnd="15dp"
+            android:background="#bbb" />
+
+        <TextView
+            android:id="@+id/bts_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/garis"
+            android:layout_alignParentEnd="true"
+           android:paddingBottom="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:text="Batas Pembayaran" />
+
+        <TextView
+            android:id="@+id/tgl_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView13"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+            android:layout_toEndOf="@+id/textView13"
+            android:text="Tanggal" />
+
+        <TextView
+            android:id="@+id/norek_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tgl_dmasuk"
+            android:layout_alignEnd="@+id/tgl_dmasuk"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView14"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tujuan_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/norek_dmasuk"
+            android:layout_alignEnd="@+id/norek_dmasuk"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView21"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/kirim_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tujuan_dmasuk"
+            android:layout_alignEnd="@+id/norek_dmasuk"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView21"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/jml_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kirim_dmasuk"
+            android:layout_alignEnd="@+id/norek_dmasuk"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView28"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/status_dmasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jml_dmasuk"
+            android:layout_alignEnd="@+id/norek_dmasuk"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView29"
+            android:text="TextView" />
+    </RelativeLayout>
+
+</RelativeLayout>

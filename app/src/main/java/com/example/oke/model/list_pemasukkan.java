@@ -7,8 +7,10 @@ public class list_pemasukkan {
     @SerializedName("tanggal") private String tanggal;
     @SerializedName("id_user") private String id_user;
     @SerializedName("id_bank") private String id_bank;
+    @SerializedName("logo_bank") private String logo_bank;
+    @SerializedName("nama_pemilik") private String nama_pemilik;
+    @SerializedName("no_rekening") private String no_rekening;
     @SerializedName("jumlah_transfer") private String jumlah_transfer;
-    @SerializedName("rek_pemilik") private String rek_pemilik;
     @SerializedName("n_pemilik") private String n_pemilik;
     @SerializedName("bts_topup") private String bts_topup;
     @SerializedName("status_topup") private String status_topup;
@@ -28,8 +30,14 @@ public class list_pemasukkan {
     public String getJumlah_transfer() {
         return jumlah_transfer;
     }
-    public String getRek_pemilik() {
-        return rek_pemilik;
+    public String getLogo_bank() {
+        return logo_bank;
+    }
+    public String getNama_pemilik() {
+        return nama_pemilik;
+    }
+    public String getNo_rekening() {
+        return no_rekening;
     }
     public String getN_pemilik() {
         return n_pemilik;

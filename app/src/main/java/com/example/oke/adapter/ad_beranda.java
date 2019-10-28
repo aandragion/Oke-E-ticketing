@@ -27,6 +27,7 @@ public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
 
     View v;
     private List<list_film> daftarfilm;
+    private ArrayList<String> filmarray;
     private List<list_film> contactList;
     Context context;
 
@@ -178,4 +179,13 @@ public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
             judul = itemView.findViewById(R.id.judul);
         }
     }
+
+    //This method will filter the list
+    //here we are passing the filtered data
+    //and assigning it to the list with notifydatasetchanged method
+
+//    public void filterList(ArrayList<list_film> filterdNames) {
+//        this.daftarfilm = filterdNames;
+//        notifyDataSetChanged();
+//    }
 }

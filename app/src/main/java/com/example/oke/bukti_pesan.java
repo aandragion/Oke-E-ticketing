@@ -58,9 +58,9 @@ public class bukti_pesan extends AppCompatActivity {
         total_harga = (TextView) findViewById(R.id.total_bukti);
         status_pesanan = (TextView) findViewById(R.id.status_bukti);
 
-        if( mstatus_pesanan.equals( "Selesai" )  ) {
-            bayar.setVisibility(View.VISIBLE);
-        }
+//        if( mstatus_pesanan.equals( "Selesai" )  ) {
+//            bayar.setVisibility(View.VISIBLE);
+//        }
 
         tanggal_pesan.setText(mtanggal_pesan);
         judul.setText(mjudul);

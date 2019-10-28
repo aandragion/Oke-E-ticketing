@@ -39,6 +39,13 @@ public class Constant {
     public static final String KEY_TOTAL_PSN = "keytotalpsn";
     public static final String KEY_STATUS_PSN = "keystatuspsn";
 
+    public static final String KEY_ID_TOPUP = "keyidtopup";
+    public static final String KEY_ID_USER = "keyiduser";
+    public static final String KEY_TGL_TOPUP = "keytgltopup";
+    public static final String KEY_JML_TOPUP = "keyjmltopup";
+    public static final String KEY_MILIK_TOPUP = "keymiliktopup";
+    public static final String KEY_BTS_TOPUP = "keybtstopup";
+    public static final String KEY_STATUS_TOPUP = "keystatustopup";
 
 
 }

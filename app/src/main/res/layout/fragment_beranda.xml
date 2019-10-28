@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blackTrans"
-    tools:context=".fragment.beranda">
+    tools:context=".fragment.beranda"
+    android:focusableInTouchMode="true">
 
     <Button
         android:id="@+id/saldo"
@@ -41,16 +42,18 @@
 <!--        android:minHeight="?attr/actionBarSize"-->
 <!--        android:theme="?attr/actionBarTheme" />-->
 
-    <SearchView
+    <EditText
         android:id="@+id/cari"
         android:layout_width="300dp"
         android:layout_height="33dp"
         android:layout_below="@+id/saldo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:background="@drawable/rounded">
+        android:background="@drawable/rounded"
+        android:hint="Cari"
+        android:paddingLeft="15dp">
 
-    </SearchView>
+    </EditText>
 
     <androidx.fragment.app.FragmentTabHost
         android:id="@android:id/tabhost"

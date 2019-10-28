@@ -1,18 +1,19 @@
 package com.example.oke.fragment;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTabHost;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SearchView;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.oke.R;
@@ -23,15 +24,11 @@ import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
 import com.example.oke.library.format_idr;
 import com.example.oke.model.Constant;
+import com.example.oke.model.list_film;
 import com.example.oke.model.saldo_icash;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +41,9 @@ public class beranda extends Fragment {
     private Button btnEdit;
     private BaseApiService apiInterface;
     SharedPrefManager sharedPrefManager;
-    private SearchView searchView;
+    private EditText searchView;
+    private List<list_film> listfilm;
+    private ad_beranda adapter;
     public beranda() {
         // Required empty public constructor
 
@@ -56,11 +55,21 @@ public class beranda extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
         sharedPrefManager = new SharedPrefManager(getActivity());
+
+//        for (int i=0; i<listfilm.size(); i++) {
+//            filmarray = new ArrayList<>();
+//            filmarray.add(listfilm.get(i).getJudul_film());
+//        }
+//        listfilm = response.body();
+//        adapter = new ad_beranda(listfilm, getActivity());
+
         mTabHost = (FragmentTabHost) view.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
         mTabHost.addTab(mTabHost.newTabSpec("play").setIndicator("playing now"), play.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("coming").setIndicator("Coming soon"), coming.class, null);
+
         btnEdit = (Button) view.findViewById(R.id.saldo);
+        searchView = (EditText) view.findViewById(R.id.cari);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -80,30 +89,23 @@ public class beranda extends Fragment {
 //        btnEdit.setText( sharedPrefManager.getSPNama(SharedPrefManager.SP_NAMA,""));
         fetchContact("" + sharedPrefManager.getSPId(SharedPrefManager.SP_ID, ""));
 
-//        // Associate searchable configuration with the SearchView
-////        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-//        searchView = (SearchView) view.findViewById(R.id.cari);
-////        searchView.setSearchableInfo(searchManager
-////                .getSearchableInfo(getComponentName()));
-//        searchView.setMaxWidth(Integer.MAX_VALUE);
-//
-//        // listening to search query text change
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//        searchView.addTextChangedListener(new TextWatcher() {
 //            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                // filter recycler view when query submitted
-//                ad_beranda.getFilter().filter(query);
-//                return false;
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
 //            }
 //
 //            @Override
-//            public boolean onQueryTextChange(String query) {
-//                // filter recycler view when text is changed
-//                ad_beranda.getFilter().filter(query);
-//                return false;
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                //after the change calling the method and passing the search input
+//                filter(editable.toString());
 //            }
 //        });
-
 
         return view;
     }
@@ -129,6 +131,22 @@ public class beranda extends Fragment {
 
     }
 
+//    private void filter(String text) {
+//        //new array list that will hold the filtered data
+//        ArrayList<list_film> filterdNames = new ArrayList<>();
+//
+//        //looping through existing elements
+//        for (list_film s :listfilm) {
+//            //if the existing elements contains the search input
+//            if (s.getJudul_film().contains(text.toLowerCase())) {
+//                //adding the element to filtered list
+//                filterdNames.add(s);
+//            }
+//        }
+//
+//        //calling a method of the adapter class and passing the filtered list
+//        adapter.filterList(filterdNames);
+//    }
 //    private String toRupiah(String nominal){
 //        String hasil = "";
 //
