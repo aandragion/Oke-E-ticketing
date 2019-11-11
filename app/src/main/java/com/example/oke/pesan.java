@@ -22,6 +22,7 @@ import com.example.oke.adapter.ad_jadwal;
 import com.example.oke.adapter.ad_jam;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
+import com.example.oke.library.load;
 import com.example.oke.model.Constant;
 import com.example.oke.model.list_jadwal;
 import com.example.oke.model.list_jam;
@@ -93,10 +94,10 @@ public class pesan extends AppCompatActivity  implements ad_jadwal.ChnageStatusL
 //
 //            }
 //        });
-        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + mgambar;
+//        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + mgambar;
 
         Glide.with(pesan.this)
-                .load(fullUrlImage)
+                .load(load.foto(mgambar))
                 .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(7)))
                 .into(gambar);
 

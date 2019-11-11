@@ -8,16 +8,11 @@
 
     <item
         android:id="@+id/pesan_menu"
-        android:icon="@drawable/ic_shopping_cart_black_24dp"
-        android:title="PESAN" />
+        android:icon="@drawable/ic_confirmation_number_black_24dp"
+        android:title="Tiket" />
 
     <item
         android:id="@+id/profil_menu"
         android:icon="@drawable/ic_account_circle_black_24dp"
         android:title="PROFIL" />
-
-
-
-
-
 </menu>

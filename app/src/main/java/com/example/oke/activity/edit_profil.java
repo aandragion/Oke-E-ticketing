@@ -28,6 +28,7 @@ import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
 import com.example.oke.fragment.profil;
 import com.example.oke.library.FileUtils2;
+import com.example.oke.library.load;
 import com.example.oke.validate;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -138,9 +139,9 @@ public class edit_profil extends AppCompatActivity {
         no_tlp.setText(sharedPrefManager.getSpNoTlp(SharedPrefManager.SP_NO_TLP, ""));
         passwordlama.setText(sharedPrefManager.getSpPass(SharedPrefManager.SP_PASS, ""));
 
-        String fullUrlImage = "http://192.168.8.109/admin-api/gambar/" + sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"");
+//        String fullUrlImage = "https://cobabioskop.000webhostapp.com/gambar/" + sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"");
         Picasso.with(edit_profil.this)
-                .load(fullUrlImage)
+                .load(load.gambar(sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"")))
                 .into(photo);
 
 //        namaFile = FileUtils2.getRealPath(edit_profil.this, contentURI);

@@ -33,10 +33,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class metode_bayar extends AppCompatActivity {
-    private String mId, mtgl, mjam, mharga, mstudio, mnokursi,mIdf,mgambar,mjudulfilm,mjumlah,mtotal, mId_user, mstatus, stringsaldo, total_rincian;
-    TextView total,total2,md_saldo, vtotal, tidak;
+    private String mId, mtgl, mjam, mharga, mstudio, mnokursi, mIdf, mgambar, mjudulfilm, mjumlah, mtotal, mId_user, mstatus, stringsaldo, total_rincian;
+    TextView total, total2, md_saldo, vtotal, tidak;
     saldo_icash saldo;
-    Button bayar,topup;
+    Button bayar, topup, transfer;
     RelativeLayout layout;
     BaseApiService mApiService;
     Context mContext;
@@ -61,22 +61,23 @@ public class metode_bayar extends AppCompatActivity {
         mharga = intent.getStringExtra(Constant.KEY_HARGA);
 //        mstudio = intent.getStringExtra(Constant.KEY_STUDIO);
         mIdf = intent.getStringExtra(Constant.KEY_ID_FILM);
-        mId_user =""+ sharedPrefManager.getSPId(SharedPrefManager.SP_ID, "");
+        mId_user = "" + sharedPrefManager.getSPId(SharedPrefManager.SP_ID, "");
 //        mgambar = intent.getStringExtra(Constant.KEY_GAMBAR);
 //        mjudulfilm = intent.getStringExtra(Constant.KEY_JUDUL_FILM);
         mstatus = "1";
         fetchContact("" + sharedPrefManager.getSPId(SharedPrefManager.SP_ID, ""));
         total = findViewById(R.id.md_total);
         total2 = findViewById(R.id.md_total2);
-        vtotal= findViewById(R.id.textView8);
-        tidak= findViewById(R.id.tidk);
+        vtotal = findViewById(R.id.textView8);
+        tidak = findViewById(R.id.tidk);
         md_saldo = findViewById(R.id.md_nominal);
         bayar = findViewById(R.id.md_bayar);
         topup = findViewById(R.id.topup_md);
+        transfer = findViewById(R.id.tranfer);
         layout = findViewById(R.id.layout4);
 
-        total.setText(format_idr.min(""+mtotal));
-        total2.setText(format_idr.toRupiah(""+mtotal));
+        total.setText(format_idr.min("" + mtotal));
+        total2.setText(format_idr.toRupiah("" + mtotal));
 
         topup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -86,6 +87,22 @@ public class metode_bayar extends AppCompatActivity {
             }
         });
 
+        transfer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //memanggil detailfilm
+//                String jml = list.get(position).getJumlah();
+
+                Intent intent = new Intent(v.getContext(), banktras.class);
+                intent.putExtra(Constant.KEY_NOMINAL, mtotal);
+                intent.putExtra("user", mId_user);
+                intent.putExtra("film", mIdf);
+                intent.putExtra("jadwal", mId);
+                intent.putExtra("kursi", mnokursi);
+                intent.putExtra("jumlah", mjumlah);
+
+                v.getContext().startActivity(intent);
+            }
+        });
 
         bayar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,11 +125,11 @@ public class metode_bayar extends AppCompatActivity {
             public void onResponse(Call<saldo_icash> call, Response<saldo_icash> response) {
                 saldo = response.body();
                 md_saldo.setText(format_idr.toRupiah("" + saldo.getSaldo_icash()));
-                stringsaldo= ""+saldo.getSaldo_icash();
+                stringsaldo = "" + saldo.getSaldo_icash();
 
                 int jumlah = Integer.parseInt(stringsaldo);
                 int hrga = Integer.parseInt(mtotal);
-                if( hrga > jumlah   ) {
+                if (hrga > jumlah) {
                     total.setVisibility(View.GONE);
                     vtotal.setVisibility(View.GONE);
                     layout.setVisibility(View.GONE);
@@ -146,38 +163,38 @@ public class metode_bayar extends AppCompatActivity {
                 mstatus
 
         ).enqueue(new Callback<ResponseBody>() {
-                             @Override
-                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                                 if (response.isSuccessful()) {
-                                     Log.i("debug", "onResponse: BERHASIL");
-                                     loading.dismiss();
-                                     try {
-                                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                         if (jsonRESULTS.getString("error").equals("false")) {
-//                                                     Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
-                                             startActivity(new Intent(mContext, MainActivity.class));
-                                         } else {
-                                             String error_message = jsonRESULTS.getString("error_msg");
-                                             Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
-                                         }
-                                     } catch (JSONException e) {
-                                         e.printStackTrace();
-                                     } catch (IOException e) {
-                                         e.printStackTrace();
-                                     }
-                                 } else {
-                                     Log.i("debug", "onResponse: GA BERHASIL");
-                                     loading.dismiss();
-                                 }
+                      @Override
+                      public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                          if (response.isSuccessful()) {
+                              Log.i("debug", "onResponse: BERHASIL");
+                              loading.dismiss();
+                              try {
+                                  JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                  if (jsonRESULTS.getString("error").equals("false")) {
+                                      Toast.makeText(mContext, "TIKET BERHASIL DIPESAN", Toast.LENGTH_SHORT).show();
+                                      startActivity(new Intent(mContext, MainActivity.class));
+                                  } else {
+                                      String error_message = jsonRESULTS.getString("error_msg");
+                                      Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                  }
+                              } catch (JSONException e) {
+                                  e.printStackTrace();
+                              } catch (IOException e) {
+                                  e.printStackTrace();
+                              }
+                          } else {
+                              Log.i("debug", "onResponse: GA BERHASIL");
+                              loading.dismiss();
+                          }
 
-                             }
+                      }
 
-                             @Override
-                             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                                 Log.e("debug", "onFailure: ERROR > " + t.getMessage());
-                                 Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
-                             }
-                         }
-                );
+                      @Override
+                      public void onFailure(Call<ResponseBody> call, Throwable t) {
+                          Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                          Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
+                      }
+                  }
+        );
     }
 }

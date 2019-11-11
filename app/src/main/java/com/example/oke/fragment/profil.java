@@ -19,7 +19,7 @@ import com.example.oke.R;
 import com.example.oke.activity.edit_profil;
 import com.example.oke.activity.login;
 import com.example.oke.apihelper.SharedPrefManager;
-import com.squareup.picasso.Picasso;
+import com.example.oke.library.load;
 
 
 public class profil extends Fragment {
@@ -59,9 +59,9 @@ public class profil extends Fragment {
         alamat.setText(sharedPrefManager.getSpAlamat(SharedPrefManager.SP_ALAMAT,""));
         no_telp.setText(sharedPrefManager.getSpNoTlp(SharedPrefManager.SP_NO_TLP,""));
 //        mgambar.setText(sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,""));
-        String fullUrlImage = "http://192.168.8.109/admin-api/gambar/" + sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"");
+//        String fullUrlImage = "https://cobabioskop.000webhostapp.com/gambar/" + sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"");
         Glide.with(getActivity())
-                .load(fullUrlImage)
+                .load(load.gambar(sharedPrefManager.getSpPhoto(SharedPrefManager.SP_PHOTO,"")))
                 .apply(RequestOptions.circleCropTransform())
                 .into(photo);
 
@@ -74,7 +74,7 @@ public class profil extends Fragment {
         return view;
     }
     private void viewItems(View view) {
-        nama = view.findViewById(R.id.nama);
+        nama = view.findViewById(R.id.nama_rating);
         email = view.findViewById(R.id.email);
         alamat = view.findViewById(R.id.alamat);
         no_telp = view.findViewById(R.id.no_telp);

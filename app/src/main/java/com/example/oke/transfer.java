@@ -10,16 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.oke.activity.MainActivity;
-import com.example.oke.activity.icash;
-import com.example.oke.fragment.play;
 import com.example.oke.library.format_idr;
+import com.example.oke.library.load;
 import com.example.oke.model.Constant;
 import com.squareup.picasso.Picasso;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class transfer extends AppCompatActivity {
     String mjml, mpemilik, mlogo, mrek, mnorek, mmilik,mbatas;
@@ -35,7 +29,7 @@ public class transfer extends AppCompatActivity {
         nama = (TextView) findViewById(R.id.namapemilik);
         rek = (TextView) findViewById(R.id.rek);
         logo = (ImageView) findViewById(R.id.logotrans);
-        tgl = (TextView) findViewById(R.id.tanggal);
+        tgl = (TextView) findViewById(R.id.tgl_rating);
         kembali=  (Button) findViewById(R.id.kembali);
 
         kembali.setOnClickListener(new View.OnClickListener(){
@@ -55,14 +49,14 @@ public class transfer extends AppCompatActivity {
         mlogo = intent.getStringExtra(Constant.KEY_LOGO);
         mrek = intent.getStringExtra(Constant.KEY_REK);
 
-        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + mlogo;
+//        String fullUrlImage = "https://cobabioskop.000webhostapp.com/upload/gbrfilm/" + mlogo;
 
         jml.setText(format_idr.toRupiah("" + mjml));
         nama.setText(mpemilik);
         rek.setText(mrek);
 
         Picasso.with(transfer.this)
-                .load(fullUrlImage)
+                .load(load.foto(mlogo))
                 .into(logo);
 
 //

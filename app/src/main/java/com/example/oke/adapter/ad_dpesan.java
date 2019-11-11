@@ -20,6 +20,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.oke.R;
 import com.example.oke.bukti_pesan;
+import com.example.oke.library.load;
 import com.example.oke.model.Constant;
 import com.example.oke.model.list_dpesan;
 import com.google.zxing.BarcodeFormat;
@@ -32,6 +33,7 @@ import java.util.List;
 import static com.example.oke.R.drawable.rounstatusbiru;
 import static com.example.oke.R.drawable.rounstatushijau;
 import static com.example.oke.R.drawable.rounstatusmerah;
+import static com.example.oke.R.drawable.rounstatusputih;
 
 public class ad_dpesan extends RecyclerView.Adapter<ad_dpesan.MyViewHolder>{
 
@@ -74,6 +76,9 @@ public class ad_dpesan extends RecyclerView.Adapter<ad_dpesan.MyViewHolder>{
         if( daftardpesan.get(position).getStatus_pesanan().equals( "Gagal" )  ) {
             holder.status.setBackgroundResource(rounstatusmerah);
         }
+        if( daftardpesan.get(position).getStatus_pesanan().equals( "Selesai" )  ) {
+            holder.status.setBackgroundResource(rounstatusputih);
+        }
         String fileName = daftardpesan.get(position).getGambar();
         String qrcode1 = daftardpesan.get(position).getId();
 
@@ -87,10 +92,10 @@ public class ad_dpesan extends RecyclerView.Adapter<ad_dpesan.MyViewHolder>{
         }
 
 
-        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + fileName;
+//        String fullUrlImage = "https://cobabioskop.000webhostapp.com/upload/gbrfilm/" + fileName;
 
         Glide.with(holder.itemView.getContext())
-        .load(fullUrlImage)
+        .load(load.foto(fileName))
         .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(7)))
         .into(holder.gambar);
 

@@ -23,7 +23,7 @@
                 android:id="@+id/relative"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:layout_below="@+id/tanggal"
+                android:layout_below="@+id/tgl_rating"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="10dp"
@@ -83,7 +83,7 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/tanggal"
+                android:id="@+id/tgl_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView24"

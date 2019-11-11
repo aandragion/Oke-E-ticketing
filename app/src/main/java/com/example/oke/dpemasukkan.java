@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.oke.activity.detailFilm;
 import com.example.oke.library.format_idr;
+import com.example.oke.library.load;
 import com.example.oke.model.Constant;
 
 public class dpemasukkan extends AppCompatActivity {
@@ -49,19 +50,19 @@ public class dpemasukkan extends AppCompatActivity {
         mbts_topup = intent.getStringExtra(Constant.KEY_BTS_TOPUP);
         mstatus_topup = intent.getStringExtra(Constant.KEY_STATUS_TOPUP);
 
-        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + mlogo_bank;
+//        String fullUrlImage = "https://cobabioskop.000webhostapp.com/upload/gbrfilm/" + mlogo_bank;
 
         Glide.with(dpemasukkan.this)
-                .load(fullUrlImage)
+                .load(load.foto(mlogo_bank))
                 .into(bank);
 
         if( mstatus_topup.equals( "Berhasil" )  ) {
             bts.setVisibility(View.GONE);
         }
 
-        if( mstatus_topup.equals( "Gagal" )  ) {
-            bts.setVisibility(View.GONE);
-        }
+//        if( mstatus_topup.equals( "Gagal" )  ) {
+//            bts.setVisibility(View.GONE);
+//        }
 
         tgl.setText(mtanggal);
         nama.setText(mnama_pemilik);

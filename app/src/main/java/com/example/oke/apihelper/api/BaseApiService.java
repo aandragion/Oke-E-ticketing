@@ -9,7 +9,9 @@ import com.example.oke.model.list_jam;
 import com.example.oke.model.list_kursi;
 import com.example.oke.model.list_pemasukkan;
 import com.example.oke.model.list_pengeluaran;
+import com.example.oke.model.list_rating;
 import com.example.oke.model.list_studio;
+import com.example.oke.model.listtras;
 import com.example.oke.model.saldo_icash;
 
 import java.lang.reflect.Array;
@@ -30,13 +32,13 @@ import retrofit2.http.Part;
 
 
 public interface BaseApiService {
-    // Fungsi ini untuk memanggil API http://10.0.2.2/mahasiswa/login.php
+    // Fungsi ini untuk memanggil API http://192.168.8.109/admin-api/login.php
     @FormUrlEncoded
     @POST("login.php")
     Call<ResponseBody> loginRequest(@Field("username") String username,
                                     @Field("password") String password);
 
-    // Fungsi ini untuk memanggil API http://10.0.2.2/mahasiswa/register.php
+    // Fungsi ini untuk memanggil API http://192.168.8.109/admin-api/register.php
     @FormUrlEncoded
     @POST("register.php")
     Call<ResponseBody> registerRequest(@Field("username") String nama,
@@ -56,6 +58,17 @@ public interface BaseApiService {
                                        @Field("n_pemilik") String n_pemilik,
                                        @Field("bts_topup") String tomorrowAsString);
 
+    @FormUrlEncoded
+    @POST("pesantrans.php")
+    Call<ResponseBody> transRequest(@Field("id_user") String muser,
+                                    @Field("id_film") String mfilm,
+                                    @Field("id_jadwal") String mjadwal,
+                                    @Field("kursi") String mkursi,
+                                    @Field("jumlah") String mjumlah,
+                                    @Field("total") String mJml,
+                                    @Field("id_bank") String mId,
+                                    @Field("n_pemilik") String n_pemilik,
+                                    @Field("bts_tras") String tomorrowAsString);
 //    @FormUrlEncoded
 //    @POST("pengeluaran.php")
 //    Call<ResponseBody> keluarRequest(@Field("id_user") String mId_user,
@@ -74,6 +87,12 @@ public interface BaseApiService {
                                     @Field("total") String mtotal,
                                     @Field("id_status") String mstatus);
 
+    @FormUrlEncoded
+    @POST("rating.php")
+    Call<ResponseBody> ratingRequest(@Field("id_user") String id_user,
+                                    @Field("id_film") String id_film,
+                                    @Field("nilai") String nilai,
+                                    @Field("ulasan") String ulasan);
     //    @FormUrlEncoded
 //    @POST("up-profil.php")
 //    Call<ResponseBody> editRequest(@Field("id_user") String id_user,
@@ -127,6 +146,11 @@ public interface BaseApiService {
             @Query("item_type") String item_type
     );
 
+    @GET("datarating.php")
+    Call<List<list_rating>> getRating(
+            @Query("item_type") String item_type
+    );
+
 //    @GET("listjam.php")
 //    Call<List<list_jam>> getJam(
 //            @Query("item_type") String item_type
@@ -159,6 +183,11 @@ public interface BaseApiService {
 
     @GET("ac_icash.php")
     Call<saldo_icash> getsaldo(
+            @Query("item_type") String item_type
+    );
+
+    @GET("listtrasfer.php")
+    Call<listtras> gettras(
             @Query("item_type") String item_type
     );
 

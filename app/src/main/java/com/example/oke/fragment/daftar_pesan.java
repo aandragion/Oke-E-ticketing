@@ -76,5 +76,4 @@ public class daftar_pesan extends Fragment {
       }
     });
   }
-
 }

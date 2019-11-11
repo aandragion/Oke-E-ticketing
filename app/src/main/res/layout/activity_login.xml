@@ -67,7 +67,6 @@
                 android:layout_width="102dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/v_user"
-
                 android:layout_alignStart="@+id/v_user"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="21dp"
@@ -117,7 +116,7 @@
                 android:layout_below="@+id/t_pass"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="-16dp"
                 android:background="@drawable/roundedcorner"
@@ -151,7 +150,8 @@
                 android:layout_marginTop="20dp"
                 android:background="#049EDE"
                 android:text="Lupa password?"
-                android:textColor="#E2FDFE" />
+                android:textColor="#E2FDFE"
+                android:visibility="gone"/>
         </RelativeLayout>
     </ScrollView>
 

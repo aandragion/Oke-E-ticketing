@@ -6,14 +6,15 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTabHost;
 
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.oke.R;
@@ -42,8 +43,11 @@ public class beranda extends Fragment {
     private BaseApiService apiInterface;
     SharedPrefManager sharedPrefManager;
     private EditText searchView;
-    private List<list_film> listfilm;
-    private ad_beranda adapter;
+    List<list_film> listfilm;
+    ad_beranda adapter;
+//    ArrayAdapter<String> adapter;
+//    Handler mHandler;
+
     public beranda() {
         // Required empty public constructor
 
@@ -56,12 +60,10 @@ public class beranda extends Fragment {
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
         sharedPrefManager = new SharedPrefManager(getActivity());
 
-//        for (int i=0; i<listfilm.size(); i++) {
-//            filmarray = new ArrayList<>();
-//            filmarray.add(listfilm.get(i).getJudul_film());
-//        }
-//        listfilm = response.body();
 //        adapter = new ad_beranda(listfilm, getActivity());
+//        mHandler = new Handler();
+//
+//        mHandler.postDelayed(m_Runnable,5000);
 
         mTabHost = (FragmentTabHost) view.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
@@ -110,6 +112,18 @@ public class beranda extends Fragment {
         return view;
     }
 
+//    private final Runnable m_Runnable = new Runnable()
+//    {
+//        public void run()
+//
+//        {
+//            Toast.makeText(getActivity(),"in runnable",Toast.LENGTH_SHORT).show();
+//
+//            mHandler.postDelayed(m_Runnable, 5000);
+//        }
+//
+//    };
+
     private void fetchContact(String type) {
         apiInterface = UtilsApi.getAPIService();
 
@@ -133,12 +147,12 @@ public class beranda extends Fragment {
 
 //    private void filter(String text) {
 //        //new array list that will hold the filtered data
-//        ArrayList<list_film> filterdNames = new ArrayList<>();
+//        List<String> filterdNames = new ArrayList<>();
 //
 //        //looping through existing elements
-//        for (list_film s :listfilm) {
+//        for (String s : listfilm) {
 //            //if the existing elements contains the search input
-//            if (s.getJudul_film().contains(text.toLowerCase())) {
+//            if (s.toLowerCase().contains(text.toLowerCase())) {
 //                //adding the element to filtered list
 //                filterdNames.add(s);
 //            }
@@ -147,6 +161,9 @@ public class beranda extends Fragment {
 //        //calling a method of the adapter class and passing the filtered list
 //        adapter.filterList(filterdNames);
 //    }
+
+
+
 //    private String toRupiah(String nominal){
 //        String hasil = "";
 //

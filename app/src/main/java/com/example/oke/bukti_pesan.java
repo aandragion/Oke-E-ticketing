@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.oke.library.format_idr;
 import com.example.oke.model.Constant;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -21,12 +24,23 @@ public class bukti_pesan extends AppCompatActivity {
     private String mid, mid_user, mtanggal_pesan, mid_film, mjudul, mgambar, mid_jadwal, mtgl_jadwal, mjam_ayang, mharga, mstudio, mkursi, mjumlah_pesanan, mtotal_harga, mstatus_pesanan;
     private TextView id, id_user, tanggal_pesan, id_film, judul, gambar, id_jadwal, tgl_jadwal, jam_ayang, harga, studio, kursi, jumlah_pesanan, total_harga, status_pesanan;
     ImageView qrcode;
-    Button bayar;
+    Button detailtras, rating;
     Bitmap bitmap ;
+    private Handler mHandler;
+    private final Handler handler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bukti_pesan);
+
+//        this.mHandler = new Handler();
+
+//        this.mHandler.postDelayed(m_Runnable,5000);
+
+//        doTheAutoRefresh();
+
+
 
         Intent intent = getIntent();
         mid = intent.getStringExtra(Constant.KEY_ID_PESAN);
@@ -45,7 +59,8 @@ public class bukti_pesan extends AppCompatActivity {
         mtotal_harga = intent.getStringExtra(Constant.KEY_TOTAL_PSN);
         mstatus_pesanan = intent.getStringExtra(Constant.KEY_STATUS_PSN);
 
-        bayar =(Button) findViewById(R.id.bayar_rincian_bukti);
+        detailtras =(Button) findViewById(R.id.detailtras);
+        rating =(Button) findViewById(R.id.rating);
         qrcode = (ImageView) findViewById(R.id.qr_bukti);
         tanggal_pesan = (TextView) findViewById(R.id.tgl_bukti);
         judul = (TextView) findViewById(R.id.nm_film_bukti);
@@ -58,19 +73,51 @@ public class bukti_pesan extends AppCompatActivity {
         total_harga = (TextView) findViewById(R.id.total_bukti);
         status_pesanan = (TextView) findViewById(R.id.status_bukti);
 
-//        if( mstatus_pesanan.equals( "Selesai" )  ) {
-//            bayar.setVisibility(View.VISIBLE);
-//        }
+        if( mstatus_pesanan.equals( "Proses" )  ) {
+            detailtras.setVisibility(View.VISIBLE);
+        }
+
+        if( mstatus_pesanan.equals( "Selesai" )  ) {
+            rating.setVisibility(View.VISIBLE);
+        }
+
+        if( mstatus_pesanan.equals( "Scan" )  ) {
+            Toast.makeText(bukti_pesan.this, "berhasil", Toast.LENGTH_LONG).show();
+        }
+
+        detailtras.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //memanggil detailfilm
+//                String jml = list.get(position).getJumlah();
+
+                Intent intent = new Intent(v.getContext(), dtrans.class);
+                intent.putExtra("id_pesan", mid);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        rating.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //memanggil detailfilm
+//                String jml = list.get(position).getJumlah();
+
+                Intent intent = new Intent(v.getContext(), rating.class);
+                intent.putExtra("judul", mjudul);
+                intent.putExtra("id", mid_film);
+                intent.putExtra("gambar", mgambar);
+                v.getContext().startActivity(intent);
+            }
+        });
 
         tanggal_pesan.setText(mtanggal_pesan);
         judul.setText(mjudul);
         tgl_jadwal.setText(mtgl_jadwal);
         jam_ayang.setText(mjam_ayang);
-        harga.setText(mharga);
+        harga.setText(format_idr.toRupiah(mharga));
         studio.setText(mstudio);
         kursi.setText(mkursi);
         jumlah_pesanan.setText(mjumlah_pesanan);
-        total_harga.setText(mtotal_harga);
+        total_harga.setText(format_idr.toRupiah(mtotal_harga));
         status_pesanan.setText(mstatus_pesanan);
 
         try {
@@ -110,4 +157,26 @@ public class bukti_pesan extends AppCompatActivity {
         bitmap.setPixels(pixels, 0, width, 0, 0, bitMatrixWidth, bitMatrixHeight);
         return bitmap;
     }
+
+//    private final Runnable m_Runnable = new Runnable()
+//    {
+//        public void run()
+//
+//        {
+//            Toast.makeText(bukti_pesan.this,"in runnable",Toast.LENGTH_SHORT).show();
+//
+//            bukti_pesan.this.mHandler.postDelayed(m_Runnable, 5000);
+//        }
+//
+//    };
+
+//    private void doTheAutoRefresh() {
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                // Write code for your refresh logic
+//                doTheAutoRefresh();
+//            }
+//        }, 5000);
+//    }
 }

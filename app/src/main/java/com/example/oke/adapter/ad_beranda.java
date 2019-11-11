@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.oke.R;
+import com.example.oke.library.load;
 import com.example.oke.model.Constant;
 import com.example.oke.activity.detailFilm;
 import com.example.oke.model.list_film;
@@ -83,10 +84,10 @@ public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
         holder.judul.setText(daftarfilm.get(position).getJudul_film());
 
         String fileName = daftarfilm.get(position).getGambar();
-        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + fileName;
+//        String fullUrlImage = load.foto(fileName);
 
         Glide.with(holder.itemView.getContext())
-                .load(fullUrlImage)
+                .load(load.foto(fileName))
                 .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(7)))
                 .into(holder.gambar);
 
@@ -184,8 +185,16 @@ public class ad_beranda extends RecyclerView.Adapter<ad_beranda.MyViewHolder> {
     //here we are passing the filtered data
     //and assigning it to the list with notifydatasetchanged method
 
-//    public void filterList(ArrayList<list_film> filterdNames) {
-//        this.daftarfilm = filterdNames;
-//        notifyDataSetChanged();
+    public void filterList(List<list_film> filterdNames) {
+        this.daftarfilm = filterdNames;
+        notifyDataSetChanged();
+    }
+
+//    public ArrayList<list_film> getSelected() {
+//        ArrayList<list_film> selected = new ArrayList<>();
+//        for(int i=0; i<daftarfilm.size(); i++) {
+//            this.daftarfilm = filterdNames;
+//        }
+//        return selected;
 //    }
 }

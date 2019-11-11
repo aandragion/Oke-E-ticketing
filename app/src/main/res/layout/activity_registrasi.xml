@@ -41,7 +41,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="8dp"
-                android:text="Nama"
+                android:text="Username"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="#DBFAFE"
@@ -56,7 +56,7 @@
                 android:layout_marginEnd="30dp"
                 android:layout_toEndOf="@+id/t_nama"
                 android:background="@drawable/roundedcorner"
-                android:hint="Nama"
+                android:hint="Username"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:inputType="textPersonName"
@@ -78,7 +78,7 @@
 
             <EditText
                 android:id="@+id/t_email"
-                android:layout_width="247dp"
+                android:layout_width="wrap_content"
                 android:layout_height="37dp"
                 android:layout_below="@+id/v_nama"
                 android:layout_alignParentEnd="true"
@@ -277,9 +277,9 @@
                 android:layout_marginBottom="-3dp"
                 android:background="#049EDE"
                 android:onClick="Login"
+                android:paddingLeft="5dp"
                 android:text="Sudah mempunyai akun"
                 android:textColor="#E7FFFF" />
-
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

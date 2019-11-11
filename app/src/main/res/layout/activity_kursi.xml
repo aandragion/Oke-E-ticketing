@@ -78,15 +78,48 @@
         android:background="#E94818"
         android:text="" />
 
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/textView35"
+        android:layout_alignStart="@+id/textView35"
+        android:layout_marginTop="10dp"
+        android:background="#FB8C00"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView37"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/textView37"
+        android:text="Layar" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FB8C00"
+        android:layout_above="@+id/psn_tiket"
+        android:text="" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/psn_tiket"
+        android:layout_above="@+id/textView40"
         android:layout_below="@+id/textView32"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp">
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scollnes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical">

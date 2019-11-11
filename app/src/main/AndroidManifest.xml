@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".dpemasukkan"></activity>
+        <activity android:name=".rating"></activity>
+        <activity android:name=".dtrans" />
+        <activity android:name=".form_trans" />
+        <activity android:name=".banktras" />
+        <activity android:name=".dpemasukkan" />
         <activity android:name=".bukti_pesan" />
         <activity android:name=".metode_bayar" />
         <activity android:name=".kursi" />

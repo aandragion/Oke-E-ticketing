@@ -36,10 +36,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class form_transfer extends AppCompatActivity {
+public class form_trans extends AppCompatActivity {
     Context mContext;
     BaseApiService mApiService;
-    private String mId, mnama, mlogo, mjlm, mrek, mpemilik, tomorrowAsString, todayString;
+    private String mId, mnama, mlogo, mjlm, mrek, mpemilik, tomorrowAsString, todayString, mJml, muser, mfilm, mjadwal, mkursi, mjumlah;
     private TextView namabank, jml, mid_user;
     EditText norek, pemilik;
     Button bayar;
@@ -50,17 +50,17 @@ public class form_transfer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_transfer);
+        setContentView(R.layout.activity_form_trans);
 
-        sharedPrefManager = new SharedPrefManager(form_transfer.this);
+        sharedPrefManager = new SharedPrefManager(form_trans.this);
 
         namabank = (TextView) findViewById(R.id.nm_bank);
         logo = (ImageView) findViewById(R.id.logo_bank);
         jml = (TextView) findViewById(R.id.jml);
 //        norek= (EditText) findViewById(R.id.tnorek);
-        pemilik= (EditText) findViewById(R.id.tpemilik);
+        pemilik = (EditText) findViewById(R.id.tpemilik);
         bayar = (Button) findViewById(R.id.bayar);
-        mid_user =(TextView) findViewById(R.id.textView23);
+        mid_user = (TextView) findViewById(R.id.textView23);
 
 
         Calendar calendar = Calendar.getInstance();
@@ -94,7 +94,7 @@ public class form_transfer extends AppCompatActivity {
 ////                            intent.putExtra("variabelumur", mlogo.getText().toString());
 //                        }
 
-                        requestTransfer();
+                            requestTransfer();
                         break;
                 }
             }
@@ -102,12 +102,14 @@ public class form_transfer extends AppCompatActivity {
             private void requestTransfer() {
 
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                mApiService.transferRequest(
-                        todayString,
-                        mid_user.getText().toString(),
+                mApiService.transRequest(
+                        muser,
+                        mfilm,
+                        mjadwal,
+                        mkursi,
+                        mjumlah,
+                        mJml,
                         mId,
-                        mjlm,
-//                        norek.getText().toString(),
                         pemilik.getText().toString(),
                         tomorrowAsString
 
@@ -126,7 +128,7 @@ public class form_transfer extends AppCompatActivity {
                                                      Intent intent = new Intent(mContext, transfer.class);
 //                                                     intent.putExtra("norek", norek.getText().toString());
                                                      intent.putExtra("pemilik", pemilik.getText().toString());
-                                                     intent.putExtra("jumlah", mjlm);
+                                                     intent.putExtra("jumlah", mJml);
                                                      intent.putExtra(Constant.KEY_BATAS, tomorrowAsString);
                                                      intent.putExtra(Constant.KEY_PEMILIK, mpemilik);
                                                      intent.putExtra(Constant.KEY_REK, mrek);
@@ -168,15 +170,21 @@ public class form_transfer extends AppCompatActivity {
         mlogo = intent.getStringExtra(Constant.KEY_LOGO);
         mrek = intent.getStringExtra(Constant.KEY_REK);
         mpemilik = intent.getStringExtra(Constant.KEY_PEMILIK);
-        mjlm = intent.getStringExtra(Constant.KEY_NOM);
+        // mjlm = intent.getStringExtra(Constant.KEY_NOM);
 
+        mJml = intent.getStringExtra(Constant.KEY_NOM);
+        muser = intent.getStringExtra("user");
+        mfilm = intent.getStringExtra("film");
+        mjadwal = intent.getStringExtra("jadwal");
+        mkursi = intent.getStringExtra("kursi");
+        mjumlah = intent.getStringExtra("jumlah");
 
 
 //        String fullUrlImage = "https://cobabioskop.000webhostapp.com/upload/gbrfilm/" + mlogo;
         mid_user.setText(sharedPrefManager.getSPId(SharedPrefManager.SP_ID, ""));
         namabank.setText(mnama);
-        jml.setText( format_idr.toRupiah(""+mjlm));
-        Picasso.with(form_transfer.this)
+        jml.setText(format_idr.toRupiah("" + mJml));
+        Picasso.with(form_trans.this)
                 .load(load.foto(mlogo))
                 .into(logo);
     }

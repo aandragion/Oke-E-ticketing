@@ -22,6 +22,7 @@ import com.example.oke.apihelper.SharedPrefManager;
 import com.example.oke.apihelper.api.BaseApiService;
 import com.example.oke.apihelper.api.UtilsApi;
 import com.example.oke.library.format_idr;
+import com.example.oke.library.load;
 import com.example.oke.metode_bayar;
 import com.example.oke.model.Constant;
 
@@ -79,10 +80,10 @@ public class rincian extends AppCompatActivity {
         harga = findViewById(R.id.hrg_psan);
         total = findViewById(R.id.total);
         gambar = findViewById(R.id.gbr_psn);
-        String fullUrlImage = "http://192.168.8.109/admin/upload/gbrfilm/" + mgambar;
+//        String fullUrlImage = "https://cobabioskop.000webhostapp.com/upload/gbrfilm/" + mgambar;
 
         Glide.with(rincian.this)
-                .load(fullUrlImage)
+                .load(load.foto(mgambar))
                 .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(7)))
                 .into(gambar);
 
