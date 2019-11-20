@@ -51,6 +51,12 @@ public class play extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_play, container, false);
 
+        progressBar = view.findViewById(R.id.prograss);
+        recycler = view.findViewById(R.id.popular);
+        layout = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        recycler.setLayoutManager(layout);
+        recycler.setHasFixedSize(true);
+        popular("popular");
 
         progressBar = view.findViewById(R.id.prograss);
         recyclerView = view.findViewById(R.id.recyclerView);
@@ -58,13 +64,6 @@ public class play extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         fetchContact("film");
-
-        progressBar = view.findViewById(R.id.prograss);
-        recycler = view.findViewById(R.id.popular);
-        layout = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-        recycler.setLayoutManager(layout);
-        recycler.setHasFixedSize(true);
-        popular("popular");
 
         return view;
     }

@@ -46,7 +46,7 @@ public class beranda extends Fragment {
     List<list_film> listfilm;
     ad_beranda adapter;
 //    ArrayAdapter<String> adapter;
-//    Handler mHandler;
+    Handler mHandler;
 
     public beranda() {
         // Required empty public constructor
@@ -61,9 +61,9 @@ public class beranda extends Fragment {
         sharedPrefManager = new SharedPrefManager(getActivity());
 
 //        adapter = new ad_beranda(listfilm, getActivity());
-//        mHandler = new Handler();
-//
-//        mHandler.postDelayed(m_Runnable,5000);
+        mHandler = new Handler();
+
+        mHandler.postDelayed(m_Runnable,1000);
 
         mTabHost = (FragmentTabHost) view.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
@@ -89,7 +89,7 @@ public class beranda extends Fragment {
         });
 
 //        btnEdit.setText( sharedPrefManager.getSPNama(SharedPrefManager.SP_NAMA,""));
-        fetchContact("" + sharedPrefManager.getSPId(SharedPrefManager.SP_ID, ""));
+
 
 //        searchView.addTextChangedListener(new TextWatcher() {
 //            @Override
@@ -112,17 +112,17 @@ public class beranda extends Fragment {
         return view;
     }
 
-//    private final Runnable m_Runnable = new Runnable()
-//    {
-//        public void run()
-//
-//        {
+    private final Runnable m_Runnable = new Runnable()
+    {
+        public void run()
+
+        {
 //            Toast.makeText(getActivity(),"in runnable",Toast.LENGTH_SHORT).show();
-//
-//            mHandler.postDelayed(m_Runnable, 5000);
-//        }
-//
-//    };
+            fetchContact("" + sharedPrefManager.getSPId(SharedPrefManager.SP_ID, ""));
+            mHandler.postDelayed(m_Runnable, 1000);
+        }
+
+    };
 
     private void fetchContact(String type) {
         apiInterface = UtilsApi.getAPIService();
