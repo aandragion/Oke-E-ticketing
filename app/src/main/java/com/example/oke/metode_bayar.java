@@ -154,13 +154,13 @@ public class metode_bayar extends AppCompatActivity {
     private void requestbayar() {
         loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
         mApiService.pesanRequest(
-                mId_user,
-                mIdf,
-                mId,
-                mnokursi,
-                mjumlah,
-                mtotal,
-                mstatus
+                mId_user, // id user
+                mIdf, // id film
+                mId, // id jadwal
+                mnokursi, // kursi
+                mjumlah, //jumlah kursi
+                mtotal, //total harga
+                mstatus // status
 
         ).enqueue(new Callback<ResponseBody>() {
                       @Override
