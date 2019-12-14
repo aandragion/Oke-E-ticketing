@@ -9,13 +9,13 @@ public class load {
         return hasil;
     }
 
-    public static String video(String movie){
-        String hasil = "";
-//http://192.168.8.109/admin/
-        hasil = "https://cobabioskop.000webhostapp.com/upload/vdfilm/" +movie;
-
-        return hasil;
-    }
+//    public static String video(String movie){
+//        String hasil = "";
+//
+//        hasil = "http://192.168.8.109/webadmin/upload/vdfilm/" +movie;
+//
+//        return hasil;
+//    }
 
     public static String gambar(String gambar){
         String hasil = "";

@@ -6,13 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".activity.detailFilm">
 
-    <VideoView
-        android:id="@+id/trailer"
-        android:layout_width="wrap_content"
+<!--    <VideoView-->
+<!--        android:id="@+id/trailer"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--         />-->
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_player"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-         />
-
+        android:layout_width="match_parent"/>
     <Button
         android:id="@+id/pesan"
         android:layout_width="82dp"
@@ -31,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pesan"
-        android:layout_below="@+id/trailer"
+        android:layout_below="@+id/youtube_player"
         android:layout_marginBottom="0dp">
 
         <RelativeLayout
@@ -45,18 +48,18 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="5dp"
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <ImageView
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/gambardetail"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/ic_star_black_24dp"
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gambardetail"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/ic_star_black_24dp"
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView

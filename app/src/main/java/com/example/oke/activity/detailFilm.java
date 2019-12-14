@@ -1,21 +1,20 @@
 package com.example.oke.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
@@ -29,7 +28,10 @@ import com.example.oke.library.load;
 import com.example.oke.model.Constant;
 import com.example.oke.model.list_rating;
 import com.example.oke.pesan;
-import com.squareup.picasso.Picasso;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.List;
 
@@ -37,7 +39,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class detailFilm extends AppCompatActivity {
+public class detailFilm extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
     Context mContext;
     BaseApiService mApiService;
     private String mId, mjudulfilm, mgambar, msinopsis, mtrailer, mgenre, mdurasi, mrilis, mstatus,mrating;
@@ -51,17 +53,24 @@ public class detailFilm extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private BaseApiService apiInterface;
+    private static String GOOGLE_YOUTUBE_API = "AIzaSyBH8szUCt1ctKQabVeQuvWgowaKxHVjn8E";
+    public static final String VIDEO_ID = "c2UNv38V6y4";
+    private YouTubePlayer mYoutubePlayer = null;
 
+    private YouTubePlayerView mYoutubePlayerView = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_film);
 
+        mYoutubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_player);
+        mYoutubePlayerView.initialize(GOOGLE_YOUTUBE_API, (YouTubePlayer.OnInitializedListener) this);
+
         judulfilm = (TextView) findViewById(R.id.judul);
         gambar = (ImageView) findViewById(R.id.gambardetail);
         sinopsis = (TextView) findViewById(R.id.sinopsis);
         genre =(TextView) findViewById(R.id.genre);
-        trailer=(VideoView) findViewById(R.id.trailer);
+//        trailer=(VideoView) findViewById(R.id.trailer);
         durasi =(TextView) findViewById(R.id.durasi);
         rilis =(TextView) findViewById(R.id.rilis);
         rating  =(TextView) findViewById(R.id.rating);
@@ -85,9 +94,11 @@ public class detailFilm extends AppCompatActivity {
 //
 //        String FullUrlVideo = load.video(mtrailer);
 //        String fullUrlImage = load.foto(mgambar);
-
+        Resources res = getResources();
+        Drawable drawable = ((Resources) res).getDrawable(R.drawable.ic_star_black_24dp);
+        ratingbar.setBackground(drawable);
         judulfilm.setText(mjudulfilm);
-        durasi.setText(mdurasi);
+        durasi.setText( mdurasi +" Menit");
         rilis.setText(mrilis);
         rating.setText(mrating);
 
@@ -104,11 +115,11 @@ public class detailFilm extends AppCompatActivity {
         int Tinggi= dm.heightPixels;
         int Lebar= dm.widthPixels;
 
-        trailer.setMinimumHeight(Tinggi);
-        trailer.setMinimumWidth(Lebar);
-
-        trailer.setVideoURI(Uri.parse(load.video(mtrailer)));
-        trailer.setMediaController(new MediaController(this));
+//        trailer.setMinimumHeight(Tinggi);
+//        trailer.setMinimumWidth(Lebar);
+//
+//        trailer.setVideoURI(Uri.parse(load.video(mtrailer)));
+//        trailer.setMediaController(new MediaController(this));
 
         pesanan.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -164,5 +175,80 @@ public class detailFilm extends AppCompatActivity {
                 Toast.makeText(detailFilm.this, "Error\n" + t.toString(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
+        youTubePlayer.setPlayerStateChangeListener(playerStateChangeListener);
+        youTubePlayer.setPlaybackEventListener(playbackEventListener);
+        if (!wasRestored) {
+            youTubePlayer.cueVideo(mtrailer);
+        }
+        mYoutubePlayer = youTubePlayer;
+    }
+
+    private YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
+        @Override
+        public void onPlaying() {
+
+        }
+
+        @Override
+        public void onPaused() {
+
+        }
+
+        @Override
+        public void onStopped() {
+
+        }
+
+        @Override
+        public void onBuffering(boolean b) {
+
+        }
+
+        @Override
+        public void onSeekTo(int i) {
+
+        }
+    };
+
+    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+        @Override
+        public void onLoading() {
+
+        }
+
+        @Override
+        public void onLoaded(String s) {
+
+        }
+
+        @Override
+        public void onAdStarted() {
+
+        }
+
+        @Override
+        public void onVideoStarted() {
+
+        }
+
+        @Override
+        public void onVideoEnded() {
+
+        }
+
+        @Override
+        public void onError(YouTubePlayer.ErrorReason errorReason) {
+
+        }
+    };
+
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
     }
 }
