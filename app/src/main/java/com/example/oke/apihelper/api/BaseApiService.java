@@ -1,21 +1,16 @@
 package com.example.oke.apihelper.api;
 
 import com.example.oke.model.list_bank;
-import com.example.oke.model.list_booking;
 import com.example.oke.model.list_dpesan;
 import com.example.oke.model.list_film;
 import com.example.oke.model.list_jadwal;
-import com.example.oke.model.list_jam;
 import com.example.oke.model.list_kursi;
 import com.example.oke.model.list_pemasukkan;
 import com.example.oke.model.list_pengeluaran;
 import com.example.oke.model.list_rating;
-import com.example.oke.model.list_studio;
 import com.example.oke.model.listtras;
 import com.example.oke.model.saldo_icash;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -27,8 +22,8 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 
 public interface BaseApiService {
@@ -142,7 +137,7 @@ public interface BaseApiService {
     );
 
     @GET("jadwal.php")
-    Call<List<list_jadwal>> getJadwal(
+    Call<List<list_jadwal>>  getJadwal(
             @Query("item_type") String item_type
     );
 

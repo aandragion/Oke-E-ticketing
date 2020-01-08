@@ -24,6 +24,35 @@
         android:textSize="15dp"
         android:visibility="gone"/>
 
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded"
+        android:text="Simpan"
+        android:textColor="#E7FFFF"
+        android:textSize="15dp"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:id="@+id/l_print"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/detailtras"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+        >
+
+
+
     <ImageView
         android:id="@+id/qr_bukti"
         android:layout_width="150dp"
@@ -39,7 +68,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/detailtras"
         android:layout_below="@+id/qr_bukti"
         android:layout_marginBottom="0dp">
 
@@ -125,7 +153,7 @@
                 android:layout_alignStart="@+id/textView3"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="15dp"
-                android:text="Tempat Duduk" />
+                android:text="Kursi" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -145,7 +173,7 @@
                 android:layout_alignStart="@+id/textView3"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="15dp"
-                android:text="Waktu" />
+                android:text="Jam" />
 
             <TextView
                 android:id="@+id/jam_bukti"
@@ -217,7 +245,7 @@
                 android:layout_alignStart="@+id/textView9"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="15dp"
-                android:text="Jumlah Pesanan" />
+                android:text="Jumlah Kursi" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -299,4 +327,6 @@
         android:layout_marginTop="5dp"
         android:text="Tanggal"
         android:textSize="10sp" />
+
+    </RelativeLayout>
 </RelativeLayout>
