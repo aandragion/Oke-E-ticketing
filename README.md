@@ -6,3 +6,5 @@ Regristrasi
 Beranda
 ![Screenshot_2019-11-17-21-23-47](https://user-images.githubusercontent.com/47492346/195525938-363ecc35-5448-4fb4-9a03-787a341fe478.png)
 ![Screenshot_2019-11-24-20-28-08](https://user-images.githubusercontent.com/47492346/195525950-04849bb1-5049-4f9f-a2fe-85743cf8e444.png) 
+Detail film
+![Screenshot_2019-11-17-19-54-08](https://user-images.githubusercontent.com/47492346/195526281-117a3e68-8f5d-47c5-bda2-aba719dc209d.png)
