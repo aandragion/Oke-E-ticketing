@@ -27,3 +27,9 @@ Halaman Rincian Transfer
 ![Screenshot_2019-11-17-21-28-07](https://user-images.githubusercontent.com/47492346/195530249-96fe54ec-ca90-42be-90d7-c0ade5ce3c41.png)
 Rincian pemesanan
 ![Screenshot_2019-11-17-19-53-02](https://user-images.githubusercontent.com/47492346/195530836-18d1e97c-aa35-42e4-890b-0591adf6e678.png)
+Bukti pemesanan selesai menonton
+![Screenshot_2019-11-17-20-02-37](https://user-images.githubusercontent.com/47492346/195531514-0929e509-74cc-4ad0-b730-068ebea1d2af.png)
+Bukti pemesanan dalam proses
+![Screenshot_2019-11-17-19-54-33](https://user-images.githubusercontent.com/47492346/195531520-94f3c348-cdeb-4b8c-accd-e7af00af48c3.png)
+Bukti pemesanan telah berhasil di beli
+![Screenshot_2019-11-17-21-32-59](https://user-images.githubusercontent.com/47492346/195531524-f7feddee-aade-48cd-bb1a-a7005ad6aee1.png)
