@@ -8,3 +8,6 @@ Beranda
 ![Screenshot_2019-11-24-20-28-08](https://user-images.githubusercontent.com/47492346/195525950-04849bb1-5049-4f9f-a2fe-85743cf8e444.png) 
 Detail film
 ![Screenshot_2019-11-17-19-54-08](https://user-images.githubusercontent.com/47492346/195526281-117a3e68-8f5d-47c5-bda2-aba719dc209d.png)
+Jadwal film
+![Screenshot_2019-11-17-19-54-02](https://user-images.githubusercontent.com/47492346/195526738-477e292e-8068-4438-a0e0-e98632f24038.png)
+ 
