@@ -33,3 +33,7 @@ Bukti pemesanan dalam proses
 ![Screenshot_2019-11-17-19-54-33](https://user-images.githubusercontent.com/47492346/195531520-94f3c348-cdeb-4b8c-accd-e7af00af48c3.png)
 Bukti pemesanan telah berhasil di beli
 ![Screenshot_2019-11-17-21-32-59](https://user-images.githubusercontent.com/47492346/195531524-f7feddee-aade-48cd-bb1a-a7005ad6aee1.png)
+Metode pembayaran
+![saldo cukup](https://user-images.githubusercontent.com/47492346/195532747-c83b70bc-ad7b-42a9-89f4-85b0f3dbee8b.PNG)
+![Screenshot_2019-11-25-08-48-35](https://user-images.githubusercontent.com/47492346/195532518-7e8a44db-5d37-45d0-abb0-7f360e9754f5.png)
+ 
