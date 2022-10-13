@@ -16,4 +16,6 @@ Daftar Pesanan
 ![Screenshot_2019-11-17-20-02-30](https://user-images.githubusercontent.com/47492346/195527488-b7b9d147-acf5-4a18-ad66-d60c3302f32f.png)
 Profile
 ![Screenshot_2019-11-17-19-51-51](https://user-images.githubusercontent.com/47492346/195527951-cc24694f-c664-477f-84a8-78915f1805e6.png)
-
+ICash (E-Wallet)
+![Screenshot_2019-11-17-21-23-40](https://user-images.githubusercontent.com/47492346/195528485-e6439a36-8f0e-4f63-a4ed-2ce4215cd948.png)
+![Screenshot_2019-11-17-21-24-19](https://user-images.githubusercontent.com/47492346/195528496-e3abc510-0ccf-4fc6-addd-daa87f163d3e.png)
