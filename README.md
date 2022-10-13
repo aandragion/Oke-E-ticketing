@@ -23,3 +23,5 @@ Top up
 ![Screenshot_2019-11-17-21-27-40](https://user-images.githubusercontent.com/47492346/195529604-c66d32cc-6422-4155-9976-e2f2abd8e08c.png)
 Form Transfer
 ![Screenshot_2019-11-17-21-29-39](https://user-images.githubusercontent.com/47492346/195529926-8546bfd3-59e6-4b27-bf19-dac4f31d0ba6.png)
+Halaman Rincian Transfer
+![Screenshot_2019-11-17-21-28-07](https://user-images.githubusercontent.com/47492346/195530249-96fe54ec-ca90-42be-90d7-c0ade5ce3c41.png)
