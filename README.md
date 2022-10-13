@@ -36,4 +36,5 @@ Bukti pemesanan telah berhasil di beli
 Metode pembayaran
 ![saldo cukup](https://user-images.githubusercontent.com/47492346/195532747-c83b70bc-ad7b-42a9-89f4-85b0f3dbee8b.PNG)
 ![Screenshot_2019-11-25-08-48-35](https://user-images.githubusercontent.com/47492346/195532518-7e8a44db-5d37-45d0-abb0-7f360e9754f5.png)
- 
+Metode pembayaran transfer
+![Screenshot_2019-11-17-21-27-51](https://user-images.githubusercontent.com/47492346/195533456-c7f82db7-e1e6-4a2f-95f5-bf1b75c8579f.png)
