@@ -10,4 +10,6 @@ Detail film
 ![Screenshot_2019-11-17-19-54-08](https://user-images.githubusercontent.com/47492346/195526281-117a3e68-8f5d-47c5-bda2-aba719dc209d.png)
 Jadwal film
 ![Screenshot_2019-11-17-19-54-02](https://user-images.githubusercontent.com/47492346/195526738-477e292e-8068-4438-a0e0-e98632f24038.png)
+Pilih kursi
+![Screenshot_2019-11-17-19-53-56](https://user-images.githubusercontent.com/47492346/195527027-7743d880-f074-44b0-8cdd-b635155cffe1.png)
  
